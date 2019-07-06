@@ -1,25 +1,24 @@
-Project Overview
-Project Schedule
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.
+# Project Overview
 
 You are responsible for scheduling time with your squad to seek approval for each deliverable by the end of the day
 
-Day	Deliverable	Status
-Day 1	Project Description	Complete
-Day 2	Wireframes / Priority Matrix / Functional Components	Incomplete
-Day 3	Core Application Structure (HTML, React setup, etc.)	Incomplete
-Day 4	Pseudocode / actual code	Incomplete
-Day 5	Initial Clickable Model	Incomplete
-Day 6	MVP	Incomplete
-Day 7	Present	Incomplete
+Day | Deliverable | Status
+--- | --- | ---
+Day 1	|Project Description |Complete
+Day 2	|Wireframes / Priority Matrix / Functional Components |Incomplete
+Day 3	|Core Application Structure (HTML, React setup, etc.) |Incomplete
+Day 4	|Pseudocode / actual code |Incomplete
+Day 5	|Initial Clickable Model |Incomplete
+Day 6	|MVP |Incomplete
+Day 7	|Present |Incomplete
 Project Description
 
 For my final project I would like to create an official website for Kosovo. I am planning on building out a homepage, "About Kosovo", "Things to do" and "Plan your trip." I will also incorporate a login where users can write a review under the things to do component.
 
-Wireframes
+## Wireframes
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe.
 
-Priority Matrix
+## Priority Matrix
 Include a full list of features that have been prioritized based on the Time and Importance Matix.
 
 MVP
@@ -32,10 +31,10 @@ PostMVP
 When user writes a review on the activity, it shows up on their 'profile page'
 Ability to 'like' a review
 
-ERD
+## ERD
 https://res.cloudinary.com/dfzjh0dui/image/upload/v1562437998/Screen_Shot_2019-07-06_at_2.32.18_PM.png
 
-UI Components
+## UI Components
 Based on the initial logic defined in the previous sections try and breakdown the logic further into stateless/stateful components.
 
 SAMPLE.....
