@@ -18,14 +18,18 @@ For my final project I would like to create an official website for Kosovo. I am
 ## Wireframes
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe.
 
+i.e
+https://www.france.fr/en/holiday-prep
+https://denmark.dk/society-and-business
+
 ## Priority Matrix
 Include a full list of features that have been prioritized based on the Time and Importance Matix.
 
 #### MVP
 Different routes rendering
-User able to log in and write reviews
+User able to log in/signup/log out
+Ability to write reviews
 Profile with user's information
-Responsive
 
 #### PostMVP
 When user writes a review on the activity, it shows up on their 'profile page'
@@ -35,20 +39,33 @@ Ability to 'like' a review
 https://res.cloudinary.com/dfzjh0dui/image/upload/v1562437998/Screen_Shot_2019-07-06_at_2.32.18_PM.png
 
 ## UI Components
-Based on the initial logic defined in the previous sections try and breakdown the logic further into stateless/stateful components.
+https://res.cloudinary.com/dfzjh0dui/image/upload/v1562513412/Screen_Shot_2019-07-07_at_11.29.33_AM.png
 
 #### SAMPLE.....
-Component	Description
-Header	This will render the header include the nav
-Footer	This will render the header include the nav
+Component |	Description
+--- | --- 
+App.js |This will render the nav and homepage component
+Homepage| This will render positive news articles for the country
+Login | This will handle the login and redirect user to profile
+Signup | This will handle the signup and redirect user to profile
+Logout | This will handle the logout and redirect user to homepage
+Profile | Will render reviews written by user and user info
+About us | Informational component that renders info
+Things to do | Will render activities that user can do, planning on map over and linking each to one activity component
+One Activity | This will specify what will be rendered from each activitiy and will show reviews
+Review form | This will be rendered on one activity
+
+
 Time frames are also key in the development cycle. You have limited time to code all phases of the game. Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
 
 #### SAMPLE.....
-Component	Priority	Estimated Time	Actual Time
-Setting up login/auth	H	6hrs	hrs
-Setting up relationship/database	H	5hrs	hrs
-Using react native to set up components H 5hrs hrs
-Total	H	11hrs	hrs
+Component	| Priority |	Estimated Time | Actual Time
+--- | ---| --- | ---
+Setting up auth on backend (login, logout signup)| H	|8hrs|	hrs
+Setting up relationship/database | H	|5hrs|	hrs
+Setting up auth on frontend (login, logout signup)| H |7hrs| hrs
+Functionality to submit and show reviews for all users |H |6hrs |hrs
+Total |	H | 26hrs	|hrs
 
 Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
@@ -59,10 +76,12 @@ Capitalize	This will capitalize the first letter in a string of text
 Additional Libraries
 Use this section to list all supporting libraries and thier role in the project.
 
-#### SAMPLE.....
-Library	What it Does
-Bootstrap	Used to help style my application
-Giphy API	Used to get gifs to use
+#### External Libraries/Packages
+Library	| What it Does
+--- | --- 
+Devise	|Used for authentication
+React responsive | Allows for react app to be responsive
+
 Code Snippet
 Use this section to include a brief code snippet of functionality that you are proud of an a brief description
 
