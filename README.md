@@ -35,6 +35,7 @@ https://res.cloudinary.com/dfzjh0dui/image/upload/v1562514899/Screen_Shot_2019-0
 
 #### PostMVP
 - Ability to 'like' a review and show how many likes are there
+- Ability to have site translated into different language
 
 ## ERD
 https://res.cloudinary.com/dfzjh0dui/image/upload/v1562437998/Screen_Shot_2019-07-06_at_2.32.18_PM.png
