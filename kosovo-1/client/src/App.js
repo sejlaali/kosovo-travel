@@ -1,56 +1,31 @@
 import React, { Component } from "react";
 import "./App.css";
+import {Switch, Route, Link} from 'react-router-dom'
+import Homepage from './components/Homepage'
+import Culture from './components/Culture'
+import Activities from './components/Activities'
+
 
 class App extends Component {
   state = {
-    email: "",
-    password: "",
-    password_confirmation: ""
-  };
-
-  handleChange = e => {
-    let name = e.target.name 
-    let value = e.target.value;
-    this.setState({
-      [name]: value
-    })
-  };
+    isSignedIn: false
+  }
 
   render() {
     return (
       <div>
-        <form>
-          <div>
-            <label for="email">E-mail: </label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="email"
-              value={this.state.email}
-            />
-          </div>
-          <div>
-            <label for="password">Password: </label>
-            <input
-              onChange={this.handleChange}
-              type="password"
-              name="password"
-              value={this.state.password}
-            />
-          </div>
-          <div>
-            <label for="password_confirmation">Confirm Password: </label>
-            <input
-              onChange={this.handleChange}
-              type="password"
-              name="password_confirmation"
-              value={this.state.password_confirmation}
-            />
-          </div>
+      <nav>
+      <li><Link to="/">Logo</Link></li>
+      <li><Link to="/culture">People and Culture</Link></li>
+      <li><Link to="/activites">Things to See and Do</Link></li>
+      <li><Link to="/auth/login">Icon to Log In</Link></li>
+        </nav>
 
-          <button onClick={this.signUp}>Sign Up</button>
-          <button onClick={this.signIn}>Log In</button>
-        </form>
+      <Switch>
+        <Route exact path="/" render={()=> <Homepage/>}/>
+        <Route exact path="/culture" component={Culture}/>
+        <Route exact path="/activities" component={Activities}/>
+      </Switch>
       </div>
     );
   }
