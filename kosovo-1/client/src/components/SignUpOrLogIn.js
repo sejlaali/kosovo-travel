@@ -6,6 +6,23 @@ class SignUpOrLogIn extends Component {
         password: "",
         password_confirmation: ""
       };
+
+    signUp = (e) => {
+        e.preventDefault()
+        this.props.signUp(
+            this.state.email,
+            this.state.password,
+            this.state.password_confirmation
+        )
+    }
+
+    signIn = (e) => {
+        e.preventDefault()
+        this.props.signIn(
+            this.state.email,
+            this.state.password
+        )
+    }
     
       handleChange = e => {
         let name = e.target.name 
@@ -14,13 +31,14 @@ class SignUpOrLogIn extends Component {
           [name]: value
         })
       };
-      
+
     render() {
         return (
           <div>
             <form>
               <div>
-                <label for="email">E-mail: </label>
+                <label htmlFor="email">E-mail: </label>
+                <br/>
                 <input
                   onChange={this.handleChange}
                   type="text"
@@ -29,7 +47,8 @@ class SignUpOrLogIn extends Component {
                 />
               </div>
               <div>
-                <label for="password">Password: </label>
+                <label htmlFor="password">Password: </label>
+                <br/>
                 <input
                   onChange={this.handleChange}
                   type="password"
@@ -38,7 +57,8 @@ class SignUpOrLogIn extends Component {
                 />
               </div>
               <div>
-                <label for="password_confirmation">Confirm Password: </label>
+                <label htmlFor="password_confirmation">Confirm Password: </label>
+                <br/>
                 <input
                   onChange={this.handleChange}
                   type="password"
