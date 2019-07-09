@@ -7,9 +7,8 @@ import Culture from "./components/Culture";
 import Activities from "./components/Activities";
 import SignUpOrLogIn from "./components/SignUpOrLogIn";
 import {saveAuthTokens, setAxiosDefaults, userIsLoggedIn, clearAuthTokens} from "./util/SessionHeader"
-import {useMediaQuery, MediaQuery} from 'react-responsive'
-
-window.React = React
+import {MediaQuery} from 'react-responsive'
+import MobileNav from './components/MobileNav'
 
 class App extends Component {
   state = {
@@ -77,7 +76,9 @@ async componentDidMount() {
 
         return (
       <div>
-        <MediaQuery minDeviceWidth={800}>
+      <MobileNav rihgt={true} pageWrapId={"page-wrap"} outerContainerId={"App"} />
+      <div id="page-wrap">
+        <MediaQuery query='(min-width: 800px)'>
         <nav style={navStyles}>
           <li>
             <Link to="/">Logo</Link>
@@ -111,6 +112,7 @@ async componentDidMount() {
             )}
           />
         </Switch>
+        </div>
       </div>
     );
   }
