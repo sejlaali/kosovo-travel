@@ -9,6 +9,7 @@ import SignUpOrLogIn from "./components/SignUpOrLogIn";
 import {saveAuthTokens, setAxiosDefaults, userIsLoggedIn, clearAuthTokens} from "./util/SessionHeader"
 import {MediaQuery} from 'react-responsive'
 import MobileNav from './components/MobileNav'
+import ReviewForm from './components/ReviewForm'
 
 class App extends Component {
   state = {
@@ -101,6 +102,7 @@ async componentDidMount() {
           <Route exact path="/" render={() => <Homepage />} />
           <Route exact path="/culture" component={Culture} />
           <Route exact path="/activities" component={Activities} />
+          <Route exact path="/activity/:id/reviews" render={(props) => <ReviewForm {...props}/>} />
           <Route
             exact
             path="/auth/login"

@@ -48,19 +48,19 @@ body {
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-    border-radius: 70px;
-    background: tomato;
-  }
+  border-radius: 70px;
+  background: tomato;
+}
 
-  
-  .bm-menu-wrap {
-    bottom: 0;
-    right: 0;
-  }
-  
-  /* Position and sizing of clickable cross button */
-  .bm-cross-button {
-    height: 30px;
+
+.bm-menu-wrap {
+  bottom: 0;
+  right: 0;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 30px;
   width: 30px;
 }
 
