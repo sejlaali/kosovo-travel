@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :authenticate_user!, except: [:index]
+    load_and_authorize_resource only: [:destroy, :update]
 
     def create
         @user = current_user
@@ -13,8 +14,8 @@ class ReviewsController < ApplicationController
       end
 
       def update
+        @user = current_user
         @review = Review.find(params[:id])
-    
     
         if @review.update(preview_params)
           render json: @review
@@ -25,11 +26,11 @@ class ReviewsController < ApplicationController
     
       def destroy
         @user = current_user
-
-        # @reviews = @user.reviews
-        # @review = @reviews.find(params[:])
+        @review = Review.find(params[:id]).delete
     
-        render json: @user
+        render json: {
+          message: "Review deleted"
+        }
       end
     
 
