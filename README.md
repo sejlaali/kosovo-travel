@@ -31,6 +31,7 @@ https://res.cloudinary.com/dfzjh0dui/image/upload/v1562514899/Screen_Shot_2019-0
 - Ability to write reviews
 -Render all reviews per activity
 - Profile with user's information
+- User that created review can be the only one to edit and/or delete their review
 - When user writes a review on the activity, it shows up on their 'profile page'
 
 #### PostMVP
@@ -48,12 +49,10 @@ Component |	Description
 --- | --- 
 App.js |This will render the nav and homepage component
 Homepage| This will render positive news articles for the country
-Login | This will handle the login and redirect user to profile
-Signup | This will handle the signup and redirect user to profile
-Logout | This will handle the logout and redirect user to homepage
+SignUpOrLogOut | This will handle the login and redirect user to profile
 Profile | Will render reviews written by user and user info
 About us | Informational component that renders info
-Things to do | Will render activities that user can do, planning on map over and linking each to one activity component
+Things to see and do | Will render activities that user can do, planning on map over and linking each to one activity component
 One Activity | This will specify what will be rendered from each activitiy and will show reviews
 Review form | This will be rendered on one activity
 
@@ -65,10 +64,11 @@ Component	| Priority |	Estimated Time | Actual Time
 --- | ---| --- | ---
 Setting up auth on backend (login, logout signup)| H	|8hrs|	8hrs
 Setting up relationship/database | H	|1hrs|	3hrs
-Setting up auth on frontend (login, logout signup)| H |7hrs| 3hrs
+Authorization to only allow user that created review to edit, delete | H | 5hrs | hrs
+Setting up auth on frontend (login, logout signup)| H |7hrs| hrs
 Render all posts and respective reviews| H | 3hr | hrs
 Functionality to submit and show reviews for all users |H |6hrs |hrs
-Total |	H | 25hrs| 14hrs
+Total |	H | 30hrs| 11hrs
 
 Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
