@@ -12,13 +12,14 @@ class App extends Component {
     isSignedIn: false
   };
 
-  signUp = async (email, password, password_confirmation) => {
+  signUp = async (name, email, password, password_confirmation) => {
     const payload = {
+      name: name,
       email: email,
       password: password,
       password_confirmation: password_confirmation
     };
-    await axios.post("http://localhost:3000/auth/sign_up", payload);
+    await axios.post("http://localhost:3000/auth", payload);
     this.setState({
       isSignedIn: true
     });
@@ -43,6 +44,8 @@ class App extends Component {
       justifyContent: "space-around"
     };
 
+    const loginOrOut = this.state.isSignedIn ? "Log out icon" : "Log in icon"
+
     return (
       <div>
         <nav style={navStyles}>
@@ -56,7 +59,7 @@ class App extends Component {
             <Link to="/activities">Things to See and Do</Link>
           </li>
           <li>
-            <Link to="/auth/login">Icon to Log In</Link>
+            <Link to="/auth/login">{loginOrOut}</Link>
           </li>
         </nav>
 
@@ -72,6 +75,7 @@ class App extends Component {
                 {...props}
                 signIn={this.signIn}
                 signUp={this.signUp}
+                isSignedIn={this.state.isSignedIn}
               />
             )}
           />

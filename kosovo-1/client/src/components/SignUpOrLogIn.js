@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 class SignUpOrLogIn extends Component {
     state = {
+        name: "",
         email: "",
         password: "",
         password_confirmation: ""
@@ -10,6 +11,7 @@ class SignUpOrLogIn extends Component {
     signUp = (e) => {
         e.preventDefault()
         this.props.signUp(
+            this.state.name,
             this.state.email,
             this.state.password,
             this.state.password_confirmation
@@ -35,8 +37,20 @@ class SignUpOrLogIn extends Component {
     render() {
         return (
           <div>
+        {this.props.isSignedIn ? <div>Hello {this.state.name}</div> :
             <form>
               <div>
+                  <label htmlFor="name">Name: </label>
+                  <br/>
+
+                  <input
+                  onChange={this.handleChange}
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                />
+                </div>
+                <div>
                 <label htmlFor="email">E-mail: </label>
                 <br/>
                 <input
@@ -69,7 +83,7 @@ class SignUpOrLogIn extends Component {
     
               <button onClick={this.signUp}>Sign Up</button>
               <button onClick={this.signIn}>Log In</button>
-            </form>
+        </form>}
           </div>
         );
       }
