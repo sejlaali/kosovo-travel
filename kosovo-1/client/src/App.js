@@ -18,9 +18,9 @@ class App extends Component {
       password: password,
       password_confirmation: password_confirmation
     };
-    await axios.post("http://localhost:3000/auth", payload);
+    await axios.post("http://localhost:3000/auth/sign_up", payload);
     this.setState({
-      signedIn: true
+      isSignedIn: true
     });
   };
 
@@ -31,8 +31,9 @@ class App extends Component {
     };
     await axios.post("http://localhost:3000/auth/sign_in", payload);
     this.setState({
-      signedIn: true
+      isSignedIn: true
     });
+    console.log('signed in!')
   };
 
   render() {
