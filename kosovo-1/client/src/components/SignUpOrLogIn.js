@@ -37,7 +37,7 @@ class SignUpOrLogIn extends Component {
     render() {
         return (
           <div>
-        {this.props.isSignedIn ? <div>Hello {this.state.name}</div> :
+        {this.props.isSignedIn ? <div>Welcome!</div> :
             <form>
               <div>
                   <label htmlFor="name">Name: </label>

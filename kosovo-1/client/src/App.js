@@ -6,11 +6,24 @@ import Homepage from "./components/Homepage";
 import Culture from "./components/Culture";
 import Activities from "./components/Activities";
 import SignUpOrLogIn from "./components/SignUpOrLogIn";
+import {saveAuthTokens, setAxiosDefaults, userIsLoggedIn, clearAuthTokens} from "./util/SessionHeader"
 
 class App extends Component {
   state = {
     isSignedIn: false
   };
+
+async componentDidMount() {
+  const isSignedIn = userIsLoggedIn()
+
+  if (isSignedIn) {
+    setAxiosDefaults()
+  }
+
+  this.setState({
+    isSignedIn
+  })
+}
 
   signUp = async (name, email, password, password_confirmation) => {
     const payload = {
@@ -19,23 +32,36 @@ class App extends Component {
       password: password,
       password_confirmation: password_confirmation
     };
-    await axios.post("http://localhost:3000/auth", payload);
-    this.setState({
+   const res = await axios.post("http://localhost:3000/auth", payload);
+   saveAuthTokens(res.headers)
+
+   this.setState({
       isSignedIn: true
     });
   };
+
 
   signIn = async (email, password) => {
     const payload = {
       email,
       password
     };
-    await axios.post("http://localhost:3000/auth/sign_in", payload);
+    const res = await axios.post("http://localhost:3000/auth/sign_in", payload);
+    saveAuthTokens(res.headers)
+
     this.setState({
       isSignedIn: true
     });
-    console.log('signed in!')
   };
+
+  signOut = async (e) => {
+    e.preventDefault()
+
+    clearAuthTokens();
+    this.setState({
+      isSignedIn: false
+    })
+  }
 
   render() {
     const navStyles = {
@@ -44,7 +70,7 @@ class App extends Component {
       justifyContent: "space-around"
     };
 
-    const loginOrOut = this.state.isSignedIn ? "Log out icon" : "Log in icon"
+    const loginOrOut = this.state.isSignedIn ? <button onClick={this.signOut}>Log out</button> : "Log in icon"
 
     return (
       <div>

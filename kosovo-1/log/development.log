@@ -755,3 +755,460 @@ Unpermitted parameter: :session
 Completed 200 OK in 343ms (Views: 0.2ms | ActiveRecord: 4.0ms)
 
 
+Started POST "/auth/sign_in" for ::1 at 2019-07-09 09:25:24 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"selma@me.com", "password"=>"[FILTERED]", "session"=>{"email"=>"selma@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "selma@me.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (5.2ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"SoIaaglJUh20leoa3UiyQg\":{\"token\":\"$2a$12$IGFUiwg4j9Lo5XFNoGWxq.7jZkVYd7zovKeosrrAVgqjEbr46qWwO\",\"expiry\":1563844771},\"iaKC6eFUFFh_KijBsmGqGw\":{\"token\":\"$2a$12$xZ3S6tpUZyZmwaT67V087eV68wa23W.PbaO8yz5wADCFwG42Ta5ge\",\"expiry\":1563888325}}"], ["updated_at", "2019-07-09 13:25:25.522115"], ["id", 2]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 410ms (Views: 0.3ms | ActiveRecord: 14.4ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:38:55 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 59ms (Views: 1.3ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:38:59 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 09:39:02 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (6.9ms)
+Completed 200 OK in 24ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:39:32 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:42:16 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:44:35 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:45:18 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:45:47 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (Views: 0.9ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:45:53 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:45:54 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:47:30 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:48:15 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:48:15 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:48:15 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:48:15 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:49:34 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:50:12 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:50:23 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (Views: 0.5ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:52:34 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:53:18 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:58:43 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/auth/sign_in" for ::1 at 2019-07-09 09:59:16 -0400
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"test2@me.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test2@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "test2@me.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"6Dm4aiGc9CcR9PMm6zNv0g\":{\"token\":\"$2a$12$503EoyHmR9sktsO1wmvUs.OuTuS.3phTeodBzLCPa0pMFXwV2xRWG\",\"expiry\":1563829750},\"9R5KvwaP9Lie26qoV4gZIA\":{\"token\":\"$2a$12$s500fGnisCdOVeaAl0FIgeGOtOLQBpZCSOWCNDyNUtLlV9Bol25KG\",\"expiry\":1563840771},\"vb538qOTyHkElseWNlb1lA\":{\"token\":\"$2a$12$/8aJCswUAubieTQxEJaGl.KX1zmNDi/KGfZfTpJjFSE8xZMMjcCO6\",\"expiry\":1563841586},\"G1iSbyEqnZOE4n_tVzmihA\":{\"token\":\"$2a$12$O3jHZPu2lgEd9GDwmhktBu/15vyQlwj54Chdr7WFHvwf/U4qa2oHe\",\"expiry\":1563841656},\"zml_IIx0dpulqLCYdH-hXA\":{\"token\":\"$2a$12$z21ycH1PwsDyfcYAjIfTSeuwzbctweRLhEDurBhg0S8dF3C3p9TYG\",\"expiry\":1563843636},\"xxFeWxeeiXOIhTf2NIWIeA\":{\"token\":\"$2a$12$G1xqOubfv8smWoQZcjiXPuBuQQKJmfujxnH0XpBBKedYgLhfXCcQ6\",\"expiry\":1563846026},\"19luDE3hyXqWNdOPuX-p4g\":{\"token\":\"$2a$12$HjYsUbKifiaPQ4ucj9PWZOhUKS4StJ1A/vz8Ro2WtQG3/mXcnJAMu\",\"expiry\":1563890356}}"], ["updated_at", "2019-07-09 13:59:16.744731"], ["id", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 360ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:59:18 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 09:59:19 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 3ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 10:12:08 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 8ms (Views: 1.3ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 10:15:04 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 4ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 10:15:07 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "undefined"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 7ms (Views: 2.7ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 10:18:58 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/auth/sign_in" for ::1 at 2019-07-09 10:20:21 -0400
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"test2@me.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test2@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "test2@me.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (2.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"6Dm4aiGc9CcR9PMm6zNv0g\":{\"token\":\"$2a$12$503EoyHmR9sktsO1wmvUs.OuTuS.3phTeodBzLCPa0pMFXwV2xRWG\",\"expiry\":1563829750},\"9R5KvwaP9Lie26qoV4gZIA\":{\"token\":\"$2a$12$s500fGnisCdOVeaAl0FIgeGOtOLQBpZCSOWCNDyNUtLlV9Bol25KG\",\"expiry\":1563840771},\"vb538qOTyHkElseWNlb1lA\":{\"token\":\"$2a$12$/8aJCswUAubieTQxEJaGl.KX1zmNDi/KGfZfTpJjFSE8xZMMjcCO6\",\"expiry\":1563841586},\"G1iSbyEqnZOE4n_tVzmihA\":{\"token\":\"$2a$12$O3jHZPu2lgEd9GDwmhktBu/15vyQlwj54Chdr7WFHvwf/U4qa2oHe\",\"expiry\":1563841656},\"zml_IIx0dpulqLCYdH-hXA\":{\"token\":\"$2a$12$z21ycH1PwsDyfcYAjIfTSeuwzbctweRLhEDurBhg0S8dF3C3p9TYG\",\"expiry\":1563843636},\"xxFeWxeeiXOIhTf2NIWIeA\":{\"token\":\"$2a$12$G1xqOubfv8smWoQZcjiXPuBuQQKJmfujxnH0XpBBKedYgLhfXCcQ6\",\"expiry\":1563846026},\"19luDE3hyXqWNdOPuX-p4g\":{\"token\":\"$2a$12$HjYsUbKifiaPQ4ucj9PWZOhUKS4StJ1A/vz8Ro2WtQG3/mXcnJAMu\",\"expiry\":1563890356},\"CjGmH17NcTxi8f1fos-Jow\":{\"token\":\"$2a$12$ZgV0efOgZd47FKYKHG3daua0KQFk7qSLJ59dfK01bx8Ld/kZAcqeS\",\"expiry\":1563891621}}"], ["updated_at", "2019-07-09 14:20:21.941803"], ["id", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 397ms (Views: 0.3ms | ActiveRecord: 4.1ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 10:20:32 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/auth/sign_out" for ::1 at 2019-07-09 10:20:49 -0400
+Processing by DeviseTokenAuth::SessionsController#destroy as */*
+  Parameters: {"email"=>"test2@me.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test2@me.com", "password"=>"[FILTERED]"}}
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/auth/sign_in" for ::1 at 2019-07-09 10:22:58 -0400
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"test2@me.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test2@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "test2@me.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (8.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"6Dm4aiGc9CcR9PMm6zNv0g\":{\"token\":\"$2a$12$503EoyHmR9sktsO1wmvUs.OuTuS.3phTeodBzLCPa0pMFXwV2xRWG\",\"expiry\":1563829750},\"9R5KvwaP9Lie26qoV4gZIA\":{\"token\":\"$2a$12$s500fGnisCdOVeaAl0FIgeGOtOLQBpZCSOWCNDyNUtLlV9Bol25KG\",\"expiry\":1563840771},\"vb538qOTyHkElseWNlb1lA\":{\"token\":\"$2a$12$/8aJCswUAubieTQxEJaGl.KX1zmNDi/KGfZfTpJjFSE8xZMMjcCO6\",\"expiry\":1563841586},\"G1iSbyEqnZOE4n_tVzmihA\":{\"token\":\"$2a$12$O3jHZPu2lgEd9GDwmhktBu/15vyQlwj54Chdr7WFHvwf/U4qa2oHe\",\"expiry\":1563841656},\"zml_IIx0dpulqLCYdH-hXA\":{\"token\":\"$2a$12$z21ycH1PwsDyfcYAjIfTSeuwzbctweRLhEDurBhg0S8dF3C3p9TYG\",\"expiry\":1563843636},\"xxFeWxeeiXOIhTf2NIWIeA\":{\"token\":\"$2a$12$G1xqOubfv8smWoQZcjiXPuBuQQKJmfujxnH0XpBBKedYgLhfXCcQ6\",\"expiry\":1563846026},\"19luDE3hyXqWNdOPuX-p4g\":{\"token\":\"$2a$12$HjYsUbKifiaPQ4ucj9PWZOhUKS4StJ1A/vz8Ro2WtQG3/mXcnJAMu\",\"expiry\":1563890356},\"CjGmH17NcTxi8f1fos-Jow\":{\"token\":\"$2a$12$ZgV0efOgZd47FKYKHG3daua0KQFk7qSLJ59dfK01bx8Ld/kZAcqeS\",\"expiry\":1563891621},\"Ybe4YB5ffNH58fTkUCpRUw\":{\"token\":\"$2a$12$KV3oa0Z1wgmaiyqqT7SyFO13am2PfwkuIW1rxH9BAnmIqIHRNP8/y\",\"expiry\":1563891778}}"], ["updated_at", "2019-07-09 14:22:58.744588"], ["id", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 358ms (Views: 0.5ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/auth/sign_in" for ::1 at 2019-07-09 10:23:23 -0400
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"test2@me.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test2@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "test2@me.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (2.1ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"6Dm4aiGc9CcR9PMm6zNv0g\":{\"token\":\"$2a$12$503EoyHmR9sktsO1wmvUs.OuTuS.3phTeodBzLCPa0pMFXwV2xRWG\",\"expiry\":1563829750},\"9R5KvwaP9Lie26qoV4gZIA\":{\"token\":\"$2a$12$s500fGnisCdOVeaAl0FIgeGOtOLQBpZCSOWCNDyNUtLlV9Bol25KG\",\"expiry\":1563840771},\"vb538qOTyHkElseWNlb1lA\":{\"token\":\"$2a$12$/8aJCswUAubieTQxEJaGl.KX1zmNDi/KGfZfTpJjFSE8xZMMjcCO6\",\"expiry\":1563841586},\"G1iSbyEqnZOE4n_tVzmihA\":{\"token\":\"$2a$12$O3jHZPu2lgEd9GDwmhktBu/15vyQlwj54Chdr7WFHvwf/U4qa2oHe\",\"expiry\":1563841656},\"zml_IIx0dpulqLCYdH-hXA\":{\"token\":\"$2a$12$z21ycH1PwsDyfcYAjIfTSeuwzbctweRLhEDurBhg0S8dF3C3p9TYG\",\"expiry\":1563843636},\"xxFeWxeeiXOIhTf2NIWIeA\":{\"token\":\"$2a$12$G1xqOubfv8smWoQZcjiXPuBuQQKJmfujxnH0XpBBKedYgLhfXCcQ6\",\"expiry\":1563846026},\"19luDE3hyXqWNdOPuX-p4g\":{\"token\":\"$2a$12$HjYsUbKifiaPQ4ucj9PWZOhUKS4StJ1A/vz8Ro2WtQG3/mXcnJAMu\",\"expiry\":1563890356},\"CjGmH17NcTxi8f1fos-Jow\":{\"token\":\"$2a$12$ZgV0efOgZd47FKYKHG3daua0KQFk7qSLJ59dfK01bx8Ld/kZAcqeS\",\"expiry\":1563891621},\"Ybe4YB5ffNH58fTkUCpRUw\":{\"token\":\"$2a$12$KV3oa0Z1wgmaiyqqT7SyFO13am2PfwkuIW1rxH9BAnmIqIHRNP8/y\",\"expiry\":1563891778},\"DRM7LwQxOPMdlnZAdTrsWA\":{\"token\":\"$2a$12$BzeOxrePKBqqeeesOXSJruwGRhihepexBt1o4pCF/VbS0kUBp3ctS\",\"expiry\":1563891804}}"], ["updated_at", "2019-07-09 14:23:24.265835"], ["id", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 371ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mPost Create (8.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Rugova Canyon"], ["image_url", "https://res.cloudinary.com/dfzjh0dui/image/upload/v1562682969/7889046558_d3b3f6c256_z.jpg"], ["description", "With its length of 25 km (15.5 miles) and depth of up to 1,000m (3,300 feet) Rugova is one of the most impressive canyons in Europe. The waters of Peć Bistrica river have cut their way through the mountains in a breathtaking way. The town of Peja is a good starting point for a hike along the canyon and the surrounding mountains."], ["created_at", "2019-07-09 14:36:50.184850"], ["updated_at", "2019-07-09 14:36:50.184850"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+Started GET "/posts/1/reviews/1" for ::1 at 2019-07-09 10:38:07 -0400
+  
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:38:17 -0400
+SyntaxError (/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...action :authenticate_user! only: [:create, :update, :destroy]
+...                               ^
+/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/reviews_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input
+  
+SyntaxError (/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...action :authenticate_user! only: [:create, :update, :destroy]
+...                               ^
+/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/reviews_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/auth/sign_in" for ::1 at 2019-07-09 10:39:20 -0400
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"test2@me.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test2@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "test2@me.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"9R5KvwaP9Lie26qoV4gZIA\":{\"token\":\"$2a$12$s500fGnisCdOVeaAl0FIgeGOtOLQBpZCSOWCNDyNUtLlV9Bol25KG\",\"expiry\":1563840771},\"vb538qOTyHkElseWNlb1lA\":{\"token\":\"$2a$12$/8aJCswUAubieTQxEJaGl.KX1zmNDi/KGfZfTpJjFSE8xZMMjcCO6\",\"expiry\":1563841586},\"G1iSbyEqnZOE4n_tVzmihA\":{\"token\":\"$2a$12$O3jHZPu2lgEd9GDwmhktBu/15vyQlwj54Chdr7WFHvwf/U4qa2oHe\",\"expiry\":1563841656},\"zml_IIx0dpulqLCYdH-hXA\":{\"token\":\"$2a$12$z21ycH1PwsDyfcYAjIfTSeuwzbctweRLhEDurBhg0S8dF3C3p9TYG\",\"expiry\":1563843636},\"xxFeWxeeiXOIhTf2NIWIeA\":{\"token\":\"$2a$12$G1xqOubfv8smWoQZcjiXPuBuQQKJmfujxnH0XpBBKedYgLhfXCcQ6\",\"expiry\":1563846026},\"19luDE3hyXqWNdOPuX-p4g\":{\"token\":\"$2a$12$HjYsUbKifiaPQ4ucj9PWZOhUKS4StJ1A/vz8Ro2WtQG3/mXcnJAMu\",\"expiry\":1563890356},\"CjGmH17NcTxi8f1fos-Jow\":{\"token\":\"$2a$12$ZgV0efOgZd47FKYKHG3daua0KQFk7qSLJ59dfK01bx8Ld/kZAcqeS\",\"expiry\":1563891621},\"Ybe4YB5ffNH58fTkUCpRUw\":{\"token\":\"$2a$12$KV3oa0Z1wgmaiyqqT7SyFO13am2PfwkuIW1rxH9BAnmIqIHRNP8/y\",\"expiry\":1563891778},\"DRM7LwQxOPMdlnZAdTrsWA\":{\"token\":\"$2a$12$BzeOxrePKBqqeeesOXSJruwGRhihepexBt1o4pCF/VbS0kUBp3ctS\",\"expiry\":1563891804},\"VFvkDq74mXd1cva9j1z3KQ\":{\"token\":\"$2a$12$YRGULzVnBx5fl2QUhXsbgO7n4Mrp4TTNw9nYUZh5cM2nMq654.HHu\",\"expiry\":1563892760}}"], ["updated_at", "2019-07-09 14:39:21.113840"], ["id", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 442ms (Views: 0.2ms | ActiveRecord: 12.3ms)
+
+
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:40:39 -0400
+  
+SyntaxError (/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...action :authenticate_user! only: [:create, :update, :destroy]
+...                               ^
+/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/reviews_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:42:07 -0400
+  
+SyntaxError (/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...action :authenticate_user! only: [:create, :update, :destroy]
+...                               ^
+/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/reviews_controller.rb:43: syntax error, unexpected keyword_end, expecting end-of-input
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:42:37 -0400
+  
+SyntaxError (/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...action :authenticate_user! only: [:create, :update, :destroy]
+...                               ^):
+  
+app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:43:09 -0400
+Processing by ReviewsController#destroy as */*
+  Parameters: {"post_id"=>"1", "id"=>"1"}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:43:19 -0400
+Processing by ReviewsController#destroy as */*
+  Parameters: {"post_id"=>"1", "id"=>"1"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:43:45 -0400
+Processing by ReviewsController#destroy as */*
+  Parameters: {"post_id"=>"1", "id"=>"1"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:44:02 -0400
+  
+SyntaxError (/Users/sejlaali/General_Assembly/sei/12-week/01-monday/project4/kosovo-1/app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...action :authenticate_user! only: [:create, :update, :destroy]
+...                               ^):
+  
+app/controllers/reviews_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:50:47 -0400
+Processing by ReviewsController#destroy as */*
+  Parameters: {"post_id"=>"1", "id"=>"1"}
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/auth/sign_in" for ::1 at 2019-07-09 10:51:29 -0400
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"test2@me.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test2@me.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "test2@me.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"vb538qOTyHkElseWNlb1lA\":{\"token\":\"$2a$12$/8aJCswUAubieTQxEJaGl.KX1zmNDi/KGfZfTpJjFSE8xZMMjcCO6\",\"expiry\":1563841586},\"G1iSbyEqnZOE4n_tVzmihA\":{\"token\":\"$2a$12$O3jHZPu2lgEd9GDwmhktBu/15vyQlwj54Chdr7WFHvwf/U4qa2oHe\",\"expiry\":1563841656},\"zml_IIx0dpulqLCYdH-hXA\":{\"token\":\"$2a$12$z21ycH1PwsDyfcYAjIfTSeuwzbctweRLhEDurBhg0S8dF3C3p9TYG\",\"expiry\":1563843636},\"xxFeWxeeiXOIhTf2NIWIeA\":{\"token\":\"$2a$12$G1xqOubfv8smWoQZcjiXPuBuQQKJmfujxnH0XpBBKedYgLhfXCcQ6\",\"expiry\":1563846026},\"19luDE3hyXqWNdOPuX-p4g\":{\"token\":\"$2a$12$HjYsUbKifiaPQ4ucj9PWZOhUKS4StJ1A/vz8Ro2WtQG3/mXcnJAMu\",\"expiry\":1563890356},\"CjGmH17NcTxi8f1fos-Jow\":{\"token\":\"$2a$12$ZgV0efOgZd47FKYKHG3daua0KQFk7qSLJ59dfK01bx8Ld/kZAcqeS\",\"expiry\":1563891621},\"Ybe4YB5ffNH58fTkUCpRUw\":{\"token\":\"$2a$12$KV3oa0Z1wgmaiyqqT7SyFO13am2PfwkuIW1rxH9BAnmIqIHRNP8/y\",\"expiry\":1563891778},\"DRM7LwQxOPMdlnZAdTrsWA\":{\"token\":\"$2a$12$BzeOxrePKBqqeeesOXSJruwGRhihepexBt1o4pCF/VbS0kUBp3ctS\",\"expiry\":1563891804},\"VFvkDq74mXd1cva9j1z3KQ\":{\"token\":\"$2a$12$YRGULzVnBx5fl2QUhXsbgO7n4Mrp4TTNw9nYUZh5cM2nMq654.HHu\",\"expiry\":1563892760},\"sTKJ9UmMw8ViC3SGxKa3LQ\":{\"token\":\"$2a$12$9BqEM9GwZ.nU1RV1.7vHWORw8YOVo7445o7OcuD.j8oMDeK.r3kVK\",\"expiry\":1563893489}}"], ["updated_at", "2019-07-09 14:51:29.955302"], ["id", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 445ms (Views: 0.2ms | ActiveRecord: 21.9ms)
+
+
+Started DELETE "/posts/1/reviews/1" for ::1 at 2019-07-09 10:51:47 -0400
+Processing by ReviewsController#destroy as */*
+  Parameters: {"post_id"=>"1", "id"=>"1"}
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/posts/1/reviews" for ::1 at 2019-07-09 10:51:58 -0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/posts/1/reviews"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
