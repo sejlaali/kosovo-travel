@@ -63,11 +63,12 @@ Time frames are also key in the development cycle. You have limited time to code
 #### Time Frames
 Component	| Priority |	Estimated Time | Actual Time
 --- | ---| --- | ---
-Setting up auth on backend (login, logout signup)| H	|8hrs|	hrs
-Setting up relationship/database | H	|5hrs|	hrs
-Setting up auth on frontend (login, logout signup)| H |7hrs| hrs
+Setting up auth on backend (login, logout signup)| H	|8hrs|	8hrs
+Setting up relationship/database | H	|1hrs|	3hrs
+Setting up auth on frontend (login, logout signup)| H |7hrs| 3hrs
+Render all posts and respective reviews| H | 3hr | hrs
 Functionality to submit and show reviews for all users |H |6hrs |hrs
-Total |	H | 26hrs	|hrs
+Total |	H | 25hrs| 14hrs
 
 Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
