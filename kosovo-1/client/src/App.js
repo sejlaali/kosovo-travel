@@ -76,7 +76,9 @@ async componentDidMount() {
 
         return (
       <div>
+        <MediaQuery query='(max-width: 799px)'>
       <MobileNav rihgt={true} pageWrapId={"page-wrap"} outerContainerId={"App"} />
+      </MediaQuery>
       <div id="page-wrap">
         <MediaQuery query='(min-width: 800px)'>
         <nav style={navStyles}>

@@ -8,12 +8,10 @@ class MobileNav extends Component {
         return ( 
         <div>
                 <Menu noOverlay right>
-                    <hr />
                 <a className="menu-item" href="/">Logo</a>
-                    <hr />
-                    <a className="menu-item" href="/culture">People and Culture</a>
-                    <hr />
-                  <a className="menu-item" href="/activities">Things to See and Do</a>
+                <a className="menu-item" href="/culture">People and Culture</a>
+                <a className="menu-item" href="/activities">Things to See and Do</a>
+                <a className="menu-item" href="/auth/login">Log in!</a>
                 </Menu>
         </div>
         );

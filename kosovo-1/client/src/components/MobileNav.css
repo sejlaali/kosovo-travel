@@ -1,7 +1,7 @@
-html,
+/* html,
 body {
   margin: 0;
-}
+} */
 
 #App {
   font-family: sans-serif;
@@ -20,9 +20,10 @@ body {
   display: inline-block;
   /* Our sidebar item styling */
   text-decoration: none;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: white;
   transition: color 0.2s;
+  border-bottom: 1px solid white;
 }
 
 /* Change color on hover */
@@ -30,37 +31,43 @@ body {
   color: white;
 }
 
+.bm-item:focus {
+  outline: 0;
+}
+
 /* The rest copied directly from react-burger-menu docs */
 
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 33px;
-  right: 36px;
-  top: 36px;
-  height:20px;
+  width: 36px;
+  right: 20px;
+  top: 20px;
+  height:25px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-    border-radius: 50px;
+    border-radius: 70px;
     background: tomato;
-}
+  }
 
-.bm-menu-wrap {
+  
+  .bm-menu-wrap {
     bottom: 0;
     right: 0;
   }
-
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 30px;
+  width: 30px;
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: black;
+  right: 5px;
 }
 
 /* General sidebar styles */
