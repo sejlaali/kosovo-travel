@@ -7,6 +7,9 @@ import Culture from "./components/Culture";
 import Activities from "./components/Activities";
 import SignUpOrLogIn from "./components/SignUpOrLogIn";
 import {saveAuthTokens, setAxiosDefaults, userIsLoggedIn, clearAuthTokens} from "./util/SessionHeader"
+import {useMediaQuery, MediaQuery} from 'react-responsive'
+
+window.React = React
 
 class App extends Component {
   state = {
@@ -72,8 +75,9 @@ async componentDidMount() {
 
     const loginOrOut = this.state.isSignedIn ? <button onClick={this.signOut}>Log out</button> : "Log in icon"
 
-    return (
+        return (
       <div>
+        <MediaQuery minDeviceWidth={800}>
         <nav style={navStyles}>
           <li>
             <Link to="/">Logo</Link>
@@ -88,6 +92,7 @@ async componentDidMount() {
             <Link to="/auth/login">{loginOrOut}</Link>
           </li>
         </nav>
+        </MediaQuery>
 
         <Switch>
           <Route exact path="/" render={() => <Homepage />} />
