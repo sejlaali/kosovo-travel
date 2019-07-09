@@ -10,3 +10,9 @@ Post.create([
         {title: 'The Rugova Canyon', image_url: "https://res.cloudinary.com/dfzjh0dui/image/upload/v1562682969/7889046558_d3b3f6c256_z.jpg", city: "Peć", description: "With its length of 25 km (15.5 miles) and depth of up to 1,000m (3,300 feet) Rugova is one of the most impressive canyons in Europe. The waters of Peć Bistrica river have cut their way through the mountains in a breathtaking way. Rugova Canyon offers great opportunities for hikers, rock-climbers and cave explorers. A 'Via Ferrata', called the 'Iron Trail', has been built. It is the first and the only one in the Balkans and enables hikers to climb rocks."}, 
         {title: "Dokufest", image_url: "https://res.cloudinary.com/dfzjh0dui/image/upload/v1562689557/dokufest1-1030x773.jpg", city: "Prizren", description: "Dokufest is the largest film festival in Kosovo, held in the beginning of August. In addition to the main theater spaces, improvised screening venues are also installed, including atop the Prizen fortress. During the Festival, the town is full of people and various parties go late at night in the bars. Documentary photo exhibitions, debates, master classes and lively music events are also part of the 9-day festival"}
 ])
+
+User.create({email: "test2@me.com", password: "helloworld", password_confirmation: "helloworld"})
+
+Review.create!(
+        {first_name: "Sejla", last_name: "Ali", title: "Good time", review_text: "Good hike!", post_id: 1, user_id: 1}
+)

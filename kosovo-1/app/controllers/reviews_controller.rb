@@ -1,17 +1,28 @@
 class ReviewsController < ApplicationController
-    before_action :authenticate_user!, except: [:index]
+    before_action :authenticate_user!, except: [:index, :create]
     load_and_authorize_resource only: [:destroy, :update]
 
+    def index 
+      @post = Post.find params[:post_id]
+      @reviews = @post.reviews
+
+      render json: @reviews    
+    end
+
     def create
-        @user = current_user
-        @review = @user.reviews.build(review_params)
-    
-        if @user.save
-          render json: @review, status: :created, location: @review
-        else
-          render json: @review.errors, status: :unprocessable_entity
-        end
+        @post = Post.find params[:post_id]
+        puts review_params
+        # @reviews = @post.reviews
+        # @review = @post.reviews.new review_params
+        # puts 'post', @post.city
+        # puts 'params', review_params[:title]
+        @review = Review.new review_params
+      if @post.reviews << @review
+        render json: @review, status: :created
+      else
+        render json: @review.errors, status: :unprocessable_entity
       end
+    end
 
       def update
         @user = current_user
@@ -32,13 +43,10 @@ class ReviewsController < ApplicationController
           message: "Review deleted"
         }
       end
-    
 
  private
 
-  def post_params
-    params.require(:post).permit(:title, :review_text)
-  end
+  def review_params
+    params.permit(:title, :review_text, :first_name, :last_name, :post_id)
 end
-
-
+end
