@@ -77,6 +77,9 @@ class ReviewForm extends Component {
         </div>
         <button onClick={submitConditional}>Submit Review</button>
         </form>
+        <br/>
+        <br/>
+
       </div>
     );
   }

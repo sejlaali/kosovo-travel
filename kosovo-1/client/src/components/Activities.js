@@ -16,24 +16,14 @@ class Activities extends Component {
         })
     }
 
-     handleReviews = async (id) =>{
-        const res = await axios.get(`http://localhost:3000/posts/${id}/reviews`)
-        const reviews = res.data
-        console.log(reviews)
-        this.setState({
-            reviews
-        })
-        return <Redirect to="/reviews"/>
-    }
-
     render() {
         const activitiesRendering = this.state.activities.map(activity => 
             <div style={{border: "1px solid black", width: "60%"}}><h3>{activity.title}</h3>
                 <h4>City: {activity.city}</h4>
                 <img src={activity.image_url}/>
                 <h3>{activity.description}</h3>
-                <h3 onClick={this.handleReviews(`${activity.id}`)}>Show all Reviews</h3>
-                <Link to={`/activity/${activity.id}/reviews`}><button>Add a review</button></Link>
+               <Link to={`/activity/${activity.id}/reviews`}><h3>Show all Reviews</h3></Link>
+                {/* <Link to={`/activity/${activity.id}/reviews`}><button>Add a review</button></Link> */}
             </div>
         )
         return (
