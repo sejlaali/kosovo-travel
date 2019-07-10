@@ -36,6 +36,7 @@ async componentDidMount() {
       password_confirmation: password_confirmation
     };
    const res = await axios.post("http://localhost:3000/auth", payload);
+   console.log(res)
    saveAuthTokens(res.headers)
 
    this.setState({
@@ -78,7 +79,7 @@ async componentDidMount() {
         return (
       <div>
         <MediaQuery query='(max-width: 799px)'>
-      <MobileNav rihgt={true} pageWrapId={"page-wrap"} outerContainerId={"App"} />
+      <MobileNav loginOrOut={loginOrOut} right={true} pageWrapId={"page-wrap"} outerContainerId={"App"} />
       </MediaQuery>
       <div id="page-wrap">
         <MediaQuery query='(min-width: 800px)'>
@@ -102,7 +103,8 @@ async componentDidMount() {
           <Route exact path="/" render={() => <Homepage />} />
           <Route exact path="/culture" component={Culture} />
           <Route exact path="/activities" component={Activities} />
-          <Route exact path="/activity/:id/reviews" render={(props) => <ReviewForm {...props}/>} />
+          <Route exact path="/activity/:id/reviews" render={() => <Reviews/>} />
+          <Route exact path="/activity/:id/reviews/create" render={(props) => <ReviewForm isSignedIn={this.state.isSignedIn} {...props}/>} />
           <Route
             exact
             path="/auth/login"

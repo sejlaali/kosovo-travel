@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import './ReviewForm.css'
 
 class ReviewForm extends Component {
     state = {
@@ -17,18 +18,20 @@ class ReviewForm extends Component {
         })
       };
 
-      handleReviewSubmit = async (e) => {
-        e.preventDefault()
-        await axios.post(`http://localhost:3000/posts/${this.props.match.params.id}/reviews`, this.state)
-      }
+    handleReviewSubmit = async (e) => {
+    e.preventDefault()
+      await axios.post(`http://localhost:3000/posts/${this.props.match.params.id}/reviews`, this.state)
+    }
+
+    handleError = () => {
+      alert('try again')
+    }
 
   render() {
       const {first_name, last_name, title, review_text} = this.state
-
-
+    const submitConditional = this.props.isSignedIn ?  this.handleReviewSubmit : this.handleError
     return (
       <div>
-        hi review form
         <form>
         <div>
             <label htmlFor="first name">First Name</label>
@@ -65,14 +68,14 @@ class ReviewForm extends Component {
         <div>
             <label htmlFor="review text">Review Description</label>
             <br/>
-            <input style={{height: "100px", width: "50%"}}
+            <input
               onChange={this.handleChange}
               type="textarea"
               name="review_text"
               value={review_text}
                 />
         </div>
-        <button onClick={this.handleReviewSubmit}>Submit Review</button>
+        <button onClick={submitConditional}>Submit Review</button>
         </form>
       </div>
     );

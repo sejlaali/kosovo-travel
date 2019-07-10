@@ -2,20 +2,19 @@
 # Define abilities for the passed in user here. For example:
 #
 
-class Ability
-  include CanCan::Ability
+# class Ability
+#   include CanCan::Ability
 
-  def initialize(user)
-     if user ||= User.new # guest user (not logged in)
-        can :read, Review
+#   def initialize(user)
+#      if user ||= User.new # guest user (not logged in)
+#         can :read, Review
         
-        can[:destroy], Review do |review|
-          review.user == user
-        else 
-          can all
-      end
-    end
-  end
+#         can[:destroy, :create, :update], Review do |review|
+#           review.user == user
+#         else can all
+#       end
+#     end
+#   end
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

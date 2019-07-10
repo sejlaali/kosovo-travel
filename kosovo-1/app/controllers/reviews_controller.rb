@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :create]
-    load_and_authorize_resource only: [:destroy, :update]
+    before_action :authenticate_user!, except: [:index]
 
     def index 
       @post = Post.find params[:post_id]
@@ -10,14 +9,11 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @post = Post.find params[:post_id]
-        puts review_params
-        # @reviews = @post.reviews
-        # @review = @post.reviews.new review_params
-        # puts 'post', @post.city
-        # puts 'params', review_params[:title]
-        @review = Review.new review_params
-      if @post.reviews << @review
+      @user = current_user
+      @post = Post.find params[:post_id]
+      @reviews = @post.reviews
+      @review = @post.reviews.merge(current_user.reviews).new review_params
+      if @review.save
         render json: @review, status: :created
       else
         render json: @review.errors, status: :unprocessable_entity
@@ -26,17 +22,20 @@ class ReviewsController < ApplicationController
 
       def update
         @user = current_user
+
         @review = Review.find(params[:id])
-    
-        if @review.update(preview_params)
-          render json: @review
-        else
-          render json: @review.errors, status: :unprocessable_entity
+        if @review.user_id == @user.id {
+          @review.update review_params
+          render json: {
+            message: "same user-it worked!"
+          }
+        }
         end
       end
     
       def destroy
         @user = current_user
+        @post = Post.find params[:post_id]
         @review = Review.find(params[:id]).delete
     
         render json: {
@@ -47,6 +46,6 @@ class ReviewsController < ApplicationController
  private
 
   def review_params
-    params.permit(:title, :review_text, :first_name, :last_name, :post_id)
+    params.permit(:title, :review_text, :first_name, :last_name, :post_id, :user_id)
 end
 end
