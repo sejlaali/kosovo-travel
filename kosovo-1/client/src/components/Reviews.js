@@ -31,7 +31,15 @@ class Reviews extends Component {
     });
   };
 
-  handleEdit = async () => {};
+  handleEdit = async () => {
+
+  };
+
+  editAndDelButtons = () => {
+      const conditional = this.state.reviews.filter(item => item.user_id === this.state.currentUser.id)
+      console.log(conditional)
+  
+  }
 
   matchIds = async () => {
     const currentUserId = localStorage.getItem("uid");
@@ -45,26 +53,23 @@ class Reviews extends Component {
   };
 
   render() {
-      const conditional = this.state.reviews.filter(item => item.user_id === this.state.currentUser.id)
-
-    const conditionalEditDel = !!{conditional} ? (
-      <div>
-        <button onClick={this.handleEdit}>Edit</button>{" "}
-        <button onClick={this.handleDelete}>Delete</button>
-      </div>
-    ) : null;
-
-console.log(conditional)
-    const renderReviews = this.state.reviews.map(review => (
-      <div style={{ border: "1px solid blue", width: "50%", margin: "0 auto" }}>
-        <h4>{review.title}</h4>
+    const currentUserReviews = this.state.reviews.filter(item => item.user_id === this.state.currentUser.id).map(review => (
+        <div style={{ border: "1px solid blue", width: "50%", margin: "0 auto" }}>
+        <h2>{review.title}</h2>
         <p>{review.review_text}</p>
-        <p>
-          Written by: {review.first_name} {review.last_name}
-        </p>
-        {conditionalEditDel}
-      </div>
-    ));
+        <p>Written by: {review.first_name} {review.last_name}</p>
+        <button>Edit</button>
+        <button>Delete</button>
+        </div>
+    ))
+
+    const nonUserReviews = this.state.reviews.filter(item => item.user_id !== this.state.currentUser.id).map(review => (
+        <div style={{ border: "1px solid blue", width: "50%", margin: "0 auto" }}>
+        <h2>{review.title}</h2>
+        <p>{review.review_text}</p>
+        <p>Written by: {review.first_name} {review.last_name}</p>
+        </div>
+    ))
 
     return (
       <div>
@@ -72,7 +77,8 @@ console.log(conditional)
           <ReviewForm id={this.state.id} isSignedIn={this.props.isSignedIn} />
         ) : null}
         <button onClick={this.handleReviewClick}>Add a review</button>
-        {renderReviews}
+        {currentUserReviews}
+        {nonUserReviews}
       </div>
     );
   }
