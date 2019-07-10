@@ -29,7 +29,7 @@ https://res.cloudinary.com/dfzjh0dui/image/upload/v1562514899/Screen_Shot_2019-0
 - Different routes rendering
 - User able to log in/signup/log out
 - Ability to write reviews
--Render all reviews per activity
+- Render all reviews per activity
 - Profile with user's information
 - User that created review can be the only one to edit and/or delete their review
 - When user writes a review on the activity, it shows up on their 'profile page'
@@ -64,10 +64,10 @@ Component	| Priority |	Estimated Time | Actual Time
 --- | ---| --- | ---
 Setting up auth on backend (login, logout signup)| H	|8hrs|	8hrs
 Setting up relationship/database | H	|1hrs|	3hrs
-Authorization to only allow user that created review to edit, delete | H | 5hrs | hrs
+Authorization to only allow user that created review to edit, delete | H | 5hrs | 5hrs
 Setting up auth on frontend (login, logout signup)| H |7hrs| hrs
 Render all posts and respective reviews| H | 3hr | hrs
-Functionality to submit and show reviews for all users |H |6hrs |hrs
+Functionality to submit and show all reviews |H |6hrs |hrs
 Total |	H | 30hrs| 11hrs
 
 Helper Functions
@@ -96,5 +96,7 @@ Issues and Resolutions
 Use this section to list of all major issues encountered and their resolution.
 
 #### SAMPLE.....
-ERROR: app.js:34 Uncaught SyntaxError: Unexpected identifier
-RESOLUTION: Missing comma after first object in sources {} object
+ERROR: "Param is missing or the value is empty: ParameterMissing in" when running post method on Postman
+RESOLUTION: instead of params.require(:review).permit(:title, :review_text)
+params.permit(:title, :review_text) worked
+
