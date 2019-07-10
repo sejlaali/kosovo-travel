@@ -5,7 +5,7 @@ You are responsible for scheduling time with your squad to seek approval for eac
 Day | Deliverable | Status
 --- | --- | ---
 Day 1	|Project Description |Complete
-Day 2	|Wireframes / Priority Matrix / Functional Components |Incomplete
+Day 2	|Wireframes / Priority Matrix / Functional Components |Complete
 Day 3	|Core Application Structure (HTML, React setup, etc.) |Incomplete
 Day 4	|Pseudocode / actual code |Incomplete
 Day 5	|Initial Clickable Model |Incomplete
@@ -76,7 +76,7 @@ Helper functions should be generic enought that they can be reused in other appl
 #### External Libraries/Packages
 Library	| What it Does
 --- | --- 
-Devise	|Used for Rails authentication
+Devise token auth |Used for Rails authentication
 React responsive | Allows for react app to be responsive
 
 Code Snippet
@@ -99,4 +99,18 @@ Use this section to list of all major issues encountered and their resolution.
 ERROR: "Param is missing or the value is empty: ParameterMissing in" when running post method on Postman
 RESOLUTION: instead of params.require(:review).permit(:title, :review_text)
 params.permit(:title, :review_text) worked
+
+ERROR: Tokens were not showing up on front-end when user signed up or signed in.
+-had to update my cors.rb file to show up like this which fixed issue: 
+```
+rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins '*'
+    resource '*',
+    :headers => :any, 
+    :methods => [:get, :post, :delete, :put, :patch, :options, :head], 
+    :expose  => ['uid', 'client', 'expiry', 'access-token', 'token-type']
+  end
+end"
+```
 
