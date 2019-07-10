@@ -6900,3 +6900,10 @@ Processing by ReviewsController#index as HTML
 Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/posts" for ::1 at 2019-07-09 19:29:13 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:4
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.8ms)
+
+
