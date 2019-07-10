@@ -22,9 +22,15 @@ class ReviewForm extends Component {
       };
 
 
-      handleReviewSubmit = async(evt)=> {
+    handleReviewSubmit = async(evt)=> {
       evt.preventDefault()
-     await axios.post(`http://localhost:3000/posts/${this.props.id}/reviews`, this.state)
+      await axios.post(`http://localhost:3000/posts/${this.props.id}/reviews`, this.state)
+      this.setState({
+        first_name: "",
+        last_name: "",
+        title: "",
+        review_text: ""
+      })
    }
 
     handleError = () => {
