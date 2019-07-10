@@ -4,9 +4,13 @@ import {Link} from 'react-router-dom'
 import ReviewForm from './ReviewForm'
 
 class Reviews extends Component {
-    state = {
-     reviews: [],
-     form: false
+    constructor(props){
+        super(props)
+        this.state = {
+         reviews: [],
+         form: false,
+         id: 0
+        }
     }
 
      async componentDidMount() {
@@ -14,7 +18,8 @@ class Reviews extends Component {
         console.log(res)
         const reviews = res.data
         this.setState({
-            reviews
+            reviews,
+            id: this.props.match.params.id
         })
      }
 
@@ -24,22 +29,27 @@ class Reviews extends Component {
         })
      }
 
+     handleEdit = async () => {
+
+     }
+
 
 render(){
+    const conditionalEditDel = this.props.isSignedIn ? <div><button onClick={this.handleEdit}>Edit</button> <button onClick={this.handleDelete}>Delete</button></div> : null
+
     const renderReviews = this.state.reviews.map(review => (
-      <div>
+      <div style={{border: "1px solid blue", width: "50%", margin: "0 auto"}}>
         <h4>{review.title}</h4>
         <p>{review.review_text}</p>
         <p>Written by: {review.first_name} {review.last_name}</p>
+        {conditionalEditDel}
         </div>
         ))
 
     return (
         <div>
-        {/* <Link to={`/activity/${this.props.match.params.id}/reviews/create`}> */}
-           {this.state.form ? <ReviewForm/> : null}
+           {this.state.form ? <ReviewForm id={this.state.id} isSignedIn={this.props.isSignedIn}/> : null}
             <button onClick={this.handleReviewClick}>Add a review</button>
-            {/* </Link> */}
        {renderReviews}
         </div>
     )

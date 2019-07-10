@@ -37,15 +37,13 @@ async componentDidMount() {
       password_confirmation: password_confirmation
     };
    const res = await axios.post("http://localhost:3000/auth", payload);
-   console.log(res)
    saveAuthTokens(res.headers)
-
    this.setState({
-      isSignedIn: true
+     isSignedIn: true
     });
   };
-
-
+  
+  
   signIn = async (email, password) => {
     const payload = {
       email,
@@ -53,6 +51,7 @@ async componentDidMount() {
     };
     const res = await axios.post("http://localhost:3000/auth/sign_in", payload);
     saveAuthTokens(res.headers)
+    // console.log(res.headers)
 
     this.setState({
       isSignedIn: true
@@ -104,8 +103,8 @@ async componentDidMount() {
           <Route exact path="/" render={() => <Homepage />} />
           <Route exact path="/culture" component={Culture} />
           <Route exact path="/activities" component={Activities} />
-          <Route exact path="/activity/:id/reviews" render={(props) => <Reviews {...props}/>} />
-          <Route exact path="/activity/:id/reviews/create" render={(props) => <ReviewForm isSignedIn={this.state.isSignedIn} {...props}/>} />
+          <Route exact path="/activity/:id/reviews" render={(props) => <Reviews isSignedIn={this.state.isSignedIn} {...props}/>} />
+          <Route exact path="/activity/:id/reviews/create" render={(props) => <ReviewForm {...props}/>} />
           <Route
             exact
             path="/auth/login"

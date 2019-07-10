@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class Activities extends Component {
     state = {
@@ -21,7 +21,7 @@ class Activities extends Component {
             <div style={{border: "1px solid black", width: "60%"}}><h3>{activity.title}</h3>
                 <h4>City: {activity.city}</h4>
                 <img src={activity.image_url}/>
-                <h3>{activity.description}</h3>
+                <h5>{activity.description}</h5>
                <Link to={`/activity/${activity.id}/reviews`}><h3>Show all Reviews</h3></Link>
                 {/* <Link to={`/activity/${activity.id}/reviews`}><button>Add a review</button></Link> */}
             </div>

@@ -3,12 +3,15 @@ import axios from "axios";
 import './ReviewForm.css'
 
 class ReviewForm extends Component {
-    state = {
+  constructor(props){
+    super(props)
+    this.state = {
         first_name: "",
         last_name: "",
         title: "",
         review_text: ""
     }
+  }
 
     handleChange = e => {
         let name = e.target.name 
@@ -18,13 +21,15 @@ class ReviewForm extends Component {
         })
       };
 
-    handleReviewSubmit = async (e) => {
-    e.preventDefault()
-      await axios.post(`http://localhost:3000/posts/${this.props.match.params.id}/reviews`, this.state)
-    }
+
+      handleReviewSubmit = async(evt)=> {
+      evt.preventDefault()
+     await axios.post(`http://localhost:3000/posts/${this.props.id}/reviews`, this.state)
+   }
 
     handleError = () => {
-      alert('try again')
+      console.log('did not submit')
+      alert('Please make sure you sign in to submit a review')
     }
 
   render() {

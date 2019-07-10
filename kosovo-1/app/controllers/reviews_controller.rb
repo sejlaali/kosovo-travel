@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :authenticate_user!, except: [:index]
+    # before_action :authenticate_user!, except: [:index]
 
     def index 
       @post = Post.find params[:post_id]
@@ -10,8 +10,8 @@ class ReviewsController < ApplicationController
 
     def create
       @user = current_user
+      puts 'shayla', @user
       @post = Post.find params[:post_id]
-      @reviews = @post.reviews
       @review = @post.reviews.merge(current_user.reviews).new review_params
       if @review.save
         render json: @review, status: :created
