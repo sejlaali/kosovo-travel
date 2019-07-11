@@ -6,9 +6,9 @@ Day | Deliverable | Status
 --- | --- | ---
 Day 1	|Project Description |Complete
 Day 2	|Wireframes / Priority Matrix / Functional Components |Complete
-Day 3	|Core Application Structure (HTML, React setup, etc.) |Incomplete
-Day 4	|Pseudocode / actual code |Incomplete
-Day 5	|Initial Clickable Model |Incomplete
+Day 3	|Core Application Structure (HTML, React setup, etc.) |Complete
+Day 4	|Pseudocode / actual code |Complete
+Day 5	|Initial Clickable Model |Complete
 Day 6	|MVP |Incomplete
 Day 7	|Present |Incomplete
 
