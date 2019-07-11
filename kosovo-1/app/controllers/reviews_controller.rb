@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
   def create
     @user = current_user
     @post = Post.find params[:post_id]
-    @review = @post.reviews.merge(current_user.reviews).new review_params
+    @review = @post.reviews.merge(current_user.reviews).create review_params
     if @review.save
       render json: @review, status: :created
     else

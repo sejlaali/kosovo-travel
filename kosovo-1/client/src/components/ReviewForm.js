@@ -40,21 +40,21 @@ class ReviewForm extends Component {
 
 
     handleReviewSubmit = async (evt)=> {
-      evt.preventDefault()
-
+    evt.preventDefault()
     if (!this.props.isUpdateForm) {
       await axios.post(`http://localhost:3000/posts/${this.props.id}/reviews`, this.state)
       this.props.handleReviewClick()
+      this.props.getAllReviews()
     } else {
       await axios.put(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${this.props.match.params.review_id}`, this.state)
       this.props.history.push(`/activity/${this.props.match.params.id}/reviews`)
     }
-      this.setState({
-        first_name: "",
-        last_name: "",
-        title: "",
-        review_text: ""
-      })
+    this.setState({
+      first_name: "",
+      last_name: "",
+      title: "",
+      review_text: ""
+    })
 
    }
 

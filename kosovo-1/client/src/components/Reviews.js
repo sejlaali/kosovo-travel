@@ -14,7 +14,7 @@ class Reviews extends Component {
     };
   }
 
-  async componentDidMount() {
+  getAllReviews = async () => {
     const res = await axios.get(
       `http://localhost:3000/posts/${this.props.match.params.id}/reviews`
     );
@@ -24,6 +24,11 @@ class Reviews extends Component {
       id: this.props.match.params.id
     });
     this.matchIds();
+  }
+  
+
+  componentDidMount() {
+    this.getAllReviews()
   }
 
   handleReviewClick = () => {
@@ -47,6 +52,12 @@ class Reviews extends Component {
     // console.log(this.state.currentUser.id)
   };
 
+  handleReviewDelete = async (id) => {
+    // console.log(evt)
+await axios.delete(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${id}`)
+this.props.history.push('/activities')
+  }
+
   render() {
   
     const currentUserReviews = this.state.reviews.filter(item => this.state.currentUser && (item.user_id === this.state.currentUser.id)).map(review => (
@@ -55,7 +66,7 @@ class Reviews extends Component {
         <p>{review.review_text}</p>
         <p>Written by: {review.first_name} {review.last_name}</p>
        <Link to={`/activity/${this.props.match.params.id}/reviews/${review.id}/edit`}><button>Edit</button></Link>
-        <button>Delete</button>
+        <button onClick={() => this.handleReviewDelete(`${review.id}`)}>Delete</button>
         </div>
     ))
 
@@ -86,7 +97,7 @@ class Reviews extends Component {
         
       <div style={{backgroundColor: "white", paddingTop: "15%"}}>
         {this.state.form ? (
-        <ReviewForm id={this.state.id} handleReviewClick={this.handleReviewClick} isSignedIn={this.props.isSignedIn} isUpdateForm={false}/>
+        <ReviewForm id={this.state.id} handleReviewClick={this.handleReviewClick} getAllReviews={this.getAllReviews} isSignedIn={this.props.isSignedIn} isUpdateForm={false}/>
         ) : null}
         <button onClick={this.handleReviewClick}>Add a review</button>
         <div style={{backgroundColor: "white"}}>
