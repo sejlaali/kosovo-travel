@@ -36,7 +36,7 @@ class SignUpOrLogIn extends Component {
 
     render() {
         return (
-          <div>
+          <div style={{height: "100vh", backgroundColor: "white"}}>
         {this.props.isSignedIn ? <div>Welcome!</div> :
             <form>
               <div>

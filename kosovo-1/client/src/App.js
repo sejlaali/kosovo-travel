@@ -13,6 +13,8 @@ import ReviewForm from './components/ReviewForm'
 import Reviews from './components/Reviews'
 import kosovoImg from "./components/assets/kosovo-flag.png"
 import "../src/components/Homepage.css"
+// import { useTranslation } from 'react-i18next';
+
 
 class App extends Component {
   state = {
@@ -38,11 +40,15 @@ async componentDidMount() {
       password: password,
       password_confirmation: password_confirmation
     };
-   const res = await axios.post("http://localhost:3000/auth", payload);
-   saveAuthTokens(res.headers)
-   this.setState({
-     isSignedIn: true
-    });
+   try {const res = await axios.post("http://localhost:3000/auth", payload);
+  saveAuthTokens(res.headers)
+  this.setState({
+    isSignedIn: true
+   });
+   }
+   catch {
+     alert('You must fill in all of the fields.')
+   }
   };
   
 
@@ -52,13 +58,14 @@ async componentDidMount() {
       email,
       password
     };
-    const res = await axios.post("http://localhost:3000/auth/sign_in", payload);
+    try {const res = await axios.post("http://localhost:3000/auth/sign_in", payload);
     saveAuthTokens(res.headers)
-    // console.log(res.headers)
-
     this.setState({
       isSignedIn: true
     });
+  } catch {
+    alert("You have entered an invalid username or password.")
+  }
   };
 
   signOut = async (e) => {
@@ -92,7 +99,9 @@ async componentDidMount() {
             <Link to="/">Logo</Link>
           </li>
           <li>
+           {/* <Trans i18nKey='welcome.intro'> */}
             <Link to="/culture">People and Culture</Link>
+            {/* </Trans> */}
           </li>
           <li>
             <Link to="/activities">Things to See and Do</Link>

@@ -59,54 +59,41 @@ this.props.history.push('/activities')
   }
 
   render() {
-  
-    const currentUserReviews = this.state.reviews.filter(item => this.state.currentUser && (item.user_id === this.state.currentUser.id)).map(review => (
-        <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
+  const {currentUser} = this.state
+    
+    const renderReviews = this.state.reviews.map(review => {
+       if (this.state.currentUser && (review.user_id === currentUser)) {
+        return <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
         <h2>{review.title}</h2>
         <p>{review.review_text}</p>
-        <p>Written by: {review.first_name} {review.last_name}</p>
-       <Link to={`/activity/${this.props.match.params.id}/reviews/${review.id}/edit`}><button>Edit</button></Link>
+        <p>Written by: {review.first_name} {review.last_name}</p>       
+        <Link to={`/activity/${this.props.match.params.id}/reviews/${review.id}/edit`}><button>Edit</button></Link>
         <button onClick={() => this.handleReviewDelete(`${review.id}`)}>Delete</button>
         </div>
-    ))
-
-    const nonUserReviews = this.state.reviews.filter(item => this.state.currentUser && (item.user_id !== this.state.currentUser.id)).map(review => (
-        <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
-        <h2>{review.title}</h2>
-        <p>{review.review_text}</p>
-        <p>Written by: {review.first_name} {review.last_name}</p>
+       } else {
+       return <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
+         <h2>{review.title}</h2>
+          <p>{review.review_text}</p>
+          <p>Written by: {review.first_name} {review.last_name}</p>
         </div>
-    ))
-    
-    const renderReviews = this.state.reviews.map(review => (
-        <div style={{ border: "1px solid blue", width: "50%", margin: "0 auto" }}>
-        <h4>{review.title}</h4>
-        <p>{review.review_text}</p>
-        <p>
-          Written by: {review.first_name} {review.last_name}
-        </p>
-      </div>
-    ));
-    
-    const renderReviewsConditional = this.state.currentUser ? 
-    <div>
-        {currentUserReviews} {nonUserReviews}
-    </div> : <div>{renderReviews}</div>
+       }
+    })
 
     return (
         
-      <div style={{backgroundColor: "white", paddingTop: "15%"}}>
+      <div style={{height: "100vh", backgroundColor: "white", paddingTop: "15%"}}>
         {this.state.form ? (
         <ReviewForm id={this.state.id} handleReviewClick={this.handleReviewClick} getAllReviews={this.getAllReviews} isSignedIn={this.props.isSignedIn} isUpdateForm={false}/>
         ) : null}
         <button onClick={this.handleReviewClick}>Add a review</button>
         <div style={{backgroundColor: "white"}}>
-        {renderReviewsConditional}
+        {renderReviews}
         
         </div>
       </div>
     );
   }
 }
+
 
 export default Reviews;
