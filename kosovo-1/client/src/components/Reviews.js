@@ -28,7 +28,7 @@ class Reviews extends Component {
 
   handleReviewClick = () => {
     this.setState({
-      form: true
+      form: !this.state.form
     });
   };
 
@@ -82,7 +82,7 @@ class Reviews extends Component {
         
       <div style={{backgroundColor: "white", paddingTop: "15%"}}>
         {this.state.form ? (
-        <ReviewForm id={this.state.id} isSignedIn={this.props.isSignedIn} isUpdateForm={false}/>
+        <ReviewForm id={this.state.id} handleReviewClick={this.handleReviewClick} isSignedIn={this.props.isSignedIn} isUpdateForm={false}/>
         ) : null}
         <button onClick={this.handleReviewClick}>Add a review</button>
         <div style={{backgroundColor: "white"}}>

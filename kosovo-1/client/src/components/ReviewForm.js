@@ -43,16 +43,19 @@ class ReviewForm extends Component {
       evt.preventDefault()
 
     if (!this.props.isUpdateForm) {
-      await axios.post(`http://localhost:3000/posts/${this.props.id}/reviews`, this.state);
+      await axios.post(`http://localhost:3000/posts/${this.props.id}/reviews`, this.state)
+      this.props.handleReviewClick()
     } else {
-      await axios.put(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${this.props.match.params.review_id}`, this.state)}
+      await axios.put(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${this.props.match.params.review_id}`, this.state)
+      this.props.history.push(`/activity/${this.props.match.params.id}/reviews`)
+    }
       this.setState({
         first_name: "",
         last_name: "",
         title: "",
         review_text: ""
       })
-      // this.props.history.push(`/activity/${this.props.match.params.id}/reviews`)
+
    }
 
     handleError = () => {
