@@ -52,10 +52,9 @@ Homepage| This will render positive news articles for the country
 SignUpOrLogOut | This will handle the login and redirect user to profile
 Profile | Will render reviews written by user and user info
 About us | Informational component that renders info
-Things to see and do | Will render activities that user can do, planning on map over and linking each to one activity component
-One Activity | This will specify what will be rendered from each activitiy and will show reviews
-Review form | This will be rendered on one activity
-
+Activities | Will render activities that user can do, and will have a link that sends the user to the list of reviews for that activity
+Reviews | All reviews listed for activity chosen and reviewform will be rendered here
+ReviewForm | This will be rendered Reviews component and will be used to edit an existing review and create a new one
 
 Time frames are also key in the development cycle. You have limited time to code all phases of the game. Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
 
