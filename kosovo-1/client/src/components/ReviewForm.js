@@ -13,6 +13,23 @@ class ReviewForm extends Component {
     }
   }
 
+  async componentDidMount () {
+    if (!this.props.isUpdateForm) {
+      return
+    }
+    if (this.props.match.params.review_id) {
+      const res = await axios.get(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${this.props.match.params.review_id}`)
+      console.log(res)
+      const {first_name, last_name, title, review_text} = res.data
+      this.setState({
+        first_name,
+        last_name,
+        title,
+        review_text
+      })
+    }
+  }
+
     handleChange = e => {
         let name = e.target.name 
         let value = e.target.value;
@@ -24,17 +41,23 @@ class ReviewForm extends Component {
 
     handleReviewSubmit = async(evt)=> {
       evt.preventDefault()
-      await axios.post(`http://localhost:3000/posts/${this.props.id}/reviews`, this.state)
+      const {id} = this.props.match.params
+      const res = this.props.isUpdateForm ? 
+      await axios.put(`http://localhost:3000/posts/${id}/reviews/${this.props.match.params.review_id}`, this.state) :
+      await axios.post(`http://localhost:3000/posts/${id}/reviews`, this.state)
+
       this.setState({
         first_name: "",
         last_name: "",
         title: "",
         review_text: ""
       })
+      this.props.history.push(`/activity/${id}/reviews`)
    }
 
     handleError = () => {
-      console.log('did not submit')
+      console.log('error')
+      console.log(this.props.isSignedIn)
       alert('Please make sure you sign in to submit a review')
     }
 
@@ -42,7 +65,7 @@ class ReviewForm extends Component {
       const {first_name, last_name, title, review_text} = this.state
     const submitConditional = this.props.isSignedIn ?  this.handleReviewSubmit : this.handleError
     return (
-      <div>
+      <div style={{backgroundColor: "white"}}>
         <form>
         <div>
             <label htmlFor="first name">First Name</label>

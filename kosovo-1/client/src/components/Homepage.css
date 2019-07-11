@@ -1,0 +1,8 @@
+#header-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18vw;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+}

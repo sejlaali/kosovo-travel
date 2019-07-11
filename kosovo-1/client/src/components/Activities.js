@@ -18,17 +18,15 @@ class Activities extends Component {
 
     render() {
         const activitiesRendering = this.state.activities.map(activity => 
-            <div style={{border: "1px solid black", width: "60%"}}><h3>{activity.title}</h3>
+            <div style={{borderBottom: "1px solid black", width: "90%", margin: "0 auto"}}><h3>{activity.title}</h3>
                 <h4>City: {activity.city}</h4>
                 <img src={activity.image_url}/>
                 <h5>{activity.description}</h5>
                <Link to={`/activity/${activity.id}/reviews`}><h3>Show all Reviews</h3></Link>
-                {/* <Link to={`/activity/${activity.id}/reviews`}><button>Add a review</button></Link> */}
             </div>
         )
         return (
-            <div>
-                This is Things to See and Do!
+            <div style={{backgroundColor: "white", paddingTop: "20%"}}>
                 {activitiesRendering}
                 </div>
         )

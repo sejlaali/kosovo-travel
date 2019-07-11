@@ -11,6 +11,8 @@ import {MediaQuery} from 'react-responsive'
 import MobileNav from './components/MobileNav'
 import ReviewForm from './components/ReviewForm'
 import Reviews from './components/Reviews'
+import kosovoImg from "./components/assets/kosovo-flag.png"
+import "../src/components/Homepage.css"
 
 class App extends Component {
   state = {
@@ -43,6 +45,7 @@ async componentDidMount() {
     });
   };
   
+
   
   signIn = async (email, password) => {
     const payload = {
@@ -78,6 +81,8 @@ async componentDidMount() {
 
         return (
       <div>
+      <Link to="/"><img id="header-img" src={kosovoImg} /></Link>
+
         <MediaQuery query='(max-width: 799px)'>
       <MobileNav loginOrOut={loginOrOut} right={true} pageWrapId={"page-wrap"} outerContainerId={"App"} />
       </MediaQuery>
@@ -103,8 +108,9 @@ async componentDidMount() {
           <Route exact path="/" render={() => <Homepage />} />
           <Route exact path="/culture" component={Culture} />
           <Route exact path="/activities" component={Activities} />
-          <Route exact path="/activity/:id/reviews" render={(props) => <Reviews isSignedIn={this.state.isSignedIn} {...props}/>} />
+          <Route exact path="/activity/:id/reviews" render={(props) => <Reviews {...props}/>} />
           <Route exact path="/activity/:id/reviews/create" render={(props) => <ReviewForm {...props}/>} />
+          <Route exact path="/activity/:id/reviews/:review_id/edit" render={(props)=> <ReviewForm {...props} isSignedIn={this.state.isSignedIn} isUpdateForm={true}/>}/>
           <Route
             exact
             path="/auth/login"

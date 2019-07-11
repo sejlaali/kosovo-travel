@@ -32,10 +32,6 @@ class Reviews extends Component {
     });
   };
 
-  handleEdit = async () => {
-
-  };
-
   matchIds = async () => {
     const currentUserId = localStorage.getItem("uid");
     const res = await axios.get(`http://localhost:3000/users`);
@@ -48,18 +44,19 @@ class Reviews extends Component {
   };
 
   render() {
+  
     const currentUserReviews = this.state.reviews.filter(item => this.state.currentUser && (item.user_id === this.state.currentUser.id)).map(review => (
-        <div style={{ border: "1px solid blue", width: "50%", margin: "0 auto" }}>
+        <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
         <h2>{review.title}</h2>
         <p>{review.review_text}</p>
         <p>Written by: {review.first_name} {review.last_name}</p>
-        <button>Edit</button>
+       <Link to={`/activity/${this.props.match.params.id}/reviews/${review.id}/edit`}><button>Edit</button></Link>
         <button>Delete</button>
         </div>
     ))
 
     const nonUserReviews = this.state.reviews.filter(item => this.state.currentUser && (item.user_id !== this.state.currentUser.id)).map(review => (
-        <div style={{ border: "1px solid blue", width: "50%", margin: "0 auto" }}>
+        <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
         <h2>{review.title}</h2>
         <p>{review.review_text}</p>
         <p>Written by: {review.first_name} {review.last_name}</p>
@@ -83,15 +80,15 @@ class Reviews extends Component {
 
     return (
         
-      <div>
+      <div style={{backgroundColor: "white", paddingTop: "15%"}}>
         {this.state.form ? (
-          <ReviewForm id={this.state.id} isSignedIn={this.props.isSignedIn} />
+          <ReviewForm id={this.state.id}/>
         ) : null}
         <button onClick={this.handleReviewClick}>Add a review</button>
-        <div>
+        <div style={{backgroundColor: "white"}}>
+        {renderReviewsConditional}
         
         </div>
-        {renderReviewsConditional}
       </div>
     );
   }
