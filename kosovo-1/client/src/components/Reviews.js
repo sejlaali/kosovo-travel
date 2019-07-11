@@ -9,7 +9,8 @@ class Reviews extends Component {
     this.state = {
       reviews: [],
       form: false,
-      currentUser: {}
+      currentUser: {},
+      id: null
     };
   }
 
@@ -35,12 +36,6 @@ class Reviews extends Component {
 
   };
 
-  editAndDelButtons = () => {
-      const conditional = this.state.reviews.filter(item => item.user_id === this.state.currentUser.id)
-      console.log(conditional)
-  
-  }
-
   matchIds = async () => {
     const currentUserId = localStorage.getItem("uid");
     const res = await axios.get(`http://localhost:3000/users`);
@@ -53,7 +48,7 @@ class Reviews extends Component {
   };
 
   render() {
-    const currentUserReviews = this.state.reviews.filter(item => item.user_id === this.state.currentUser.id).map(review => (
+    const currentUserReviews = this.state.reviews.filter(item => this.state.currentUser && (item.user_id === this.state.currentUser.id)).map(review => (
         <div style={{ border: "1px solid blue", width: "50%", margin: "0 auto" }}>
         <h2>{review.title}</h2>
         <p>{review.review_text}</p>
@@ -63,22 +58,40 @@ class Reviews extends Component {
         </div>
     ))
 
-    const nonUserReviews = this.state.reviews.filter(item => item.user_id !== this.state.currentUser.id).map(review => (
+    const nonUserReviews = this.state.reviews.filter(item => this.state.currentUser && (item.user_id !== this.state.currentUser.id)).map(review => (
         <div style={{ border: "1px solid blue", width: "50%", margin: "0 auto" }}>
         <h2>{review.title}</h2>
         <p>{review.review_text}</p>
         <p>Written by: {review.first_name} {review.last_name}</p>
         </div>
     ))
+    
+    const renderReviews = this.state.reviews.map(review => (
+        <div style={{ border: "1px solid blue", width: "50%", margin: "0 auto" }}>
+        <h4>{review.title}</h4>
+        <p>{review.review_text}</p>
+        <p>
+          Written by: {review.first_name} {review.last_name}
+        </p>
+      </div>
+    ));
+    
+    const renderReviewsConditional = this.state.currentUser ? 
+    <div>
+        {currentUserReviews} {nonUserReviews}
+    </div> : <div>{renderReviews}</div>
 
     return (
+        
       <div>
         {this.state.form ? (
           <ReviewForm id={this.state.id} isSignedIn={this.props.isSignedIn} />
         ) : null}
         <button onClick={this.handleReviewClick}>Add a review</button>
-        {currentUserReviews}
-        {nonUserReviews}
+        <div>
+        
+        </div>
+        {renderReviewsConditional}
       </div>
     );
   }
