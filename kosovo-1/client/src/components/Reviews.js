@@ -27,9 +27,13 @@ class Reviews extends Component {
   }
 
   handleReviewClick = () => {
+    if (!this.props.isSignedIn) {
+      alert("Please log in or sign up to write a review.")
+    }
+    else {
     this.setState({
       form: !this.state.form
-    });
+    })}
   };
 
   matchIds = async () => {
