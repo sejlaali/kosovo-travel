@@ -26,7 +26,6 @@ class Reviews extends Component {
     this.matchIds();
   }
   
-
   componentDidMount() {
     this.getAllReviews()
   }
@@ -49,20 +48,18 @@ class Reviews extends Component {
     this.setState({
       currentUser: currentUser[0]
     });
-    // console.log(this.state.currentUser.id)
   };
 
   handleReviewDelete = async (id) => {
-    // console.log(evt)
-await axios.delete(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${id}`)
-this.props.history.push('/activities')
+  await axios.delete(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${id}`)
+  this.props.history.push('/activities')
   }
 
   render() {
   const {currentUser} = this.state
     
-    const renderReviews = this.state.reviews.map(review => {
-       if (this.state.currentUser && (review.user_id === currentUser)) {
+  const renderReviews = this.state.reviews.map(review => {
+    if (this.state.currentUser && (review.user_id === currentUser.id)) {
         return <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
         <h2>{review.title}</h2>
         <p>{review.review_text}</p>
@@ -70,7 +67,7 @@ this.props.history.push('/activities')
         <Link to={`/activity/${this.props.match.params.id}/reviews/${review.id}/edit`}><button>Edit</button></Link>
         <button onClick={() => this.handleReviewDelete(`${review.id}`)}>Delete</button>
         </div>
-       } else {
+    } else {
        return <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
          <h2>{review.title}</h2>
           <p>{review.review_text}</p>
@@ -80,7 +77,6 @@ this.props.history.push('/activities')
     })
 
     return (
-        
       <div style={{height: "100vh", backgroundColor: "white", paddingTop: "15%"}}>
         {this.state.form ? (
         <ReviewForm id={this.state.id} handleReviewClick={this.handleReviewClick} getAllReviews={this.getAllReviews} isSignedIn={this.props.isSignedIn} isUpdateForm={false}/>

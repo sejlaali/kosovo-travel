@@ -23,7 +23,13 @@ body {
   margin-bottom: 20px;
   color: black;
   transition: color 0.2s;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  word-spacing: 0em;
+  line-height: 1.3em;
 }
 
 /* Change color on hover */
@@ -41,16 +47,18 @@ body {
 .bm-burger-button {
   position: fixed;
   width: 36px;
-  right: 20px;
-  top: 20px;
+  right: 10px;
+  top: 15px;
   height:25px;
 
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  border-radius: 70px;
-  background: black;
+  border-radius: 80px;
+  background: white;
+  max-width: 12vw;
+  border: 1px solid black;
 }
 
 
@@ -74,14 +82,11 @@ body {
 /* General sidebar styles */
 .bm-menu {
   background: white;
-  padding: 2.5em 1.5em 0;
+  padding: 2.2em 1.2em;
   font-size: 1.15em;
+  opacity: .9;
 }
 
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: black;
-}
 
 /* Wrapper for item list */
 .bm-item-list {
@@ -92,3 +97,15 @@ body {
 /* .bm-overlay {
   background: rgba(255,255,255);
 } */
+
+#header-img {
+  /* position: fixed; */
+  position: absolute;
+  right: 185px;
+  max-width: 8vw;
+  opacity: 1;
+  border-radius: 70px;
+  overflow: hidden;
+  /* border-bottom: 1px solid white; */
+  /* border-right: 1px solid white; */
+}

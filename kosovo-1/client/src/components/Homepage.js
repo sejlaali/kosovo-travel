@@ -8,8 +8,8 @@ class Homepage extends Component {
     render() {
         return (
             <div>
-{/* <iframe width="560" height="315" src="https://www.youtube.com/embed/R2hvRHJGsLE?start=9" frameborder="0" autoplay="1" allow="accelerometer; autoplay=0; encrypted-media; frameborder=0; picture-in-picture" allowfullscreen></iframe>                */}
- </div>
+            <h1>Welcome to Kosova</h1>
+            </div>
         )
     }
 }

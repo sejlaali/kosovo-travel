@@ -13,7 +13,6 @@ import ReviewForm from './components/ReviewForm'
 import Reviews from './components/Reviews'
 import kosovoImg from "./components/assets/kosovo-flag.png"
 import "../src/components/Homepage.css"
-// import { useTranslation } from 'react-i18next';
 
 
 class App extends Component {
@@ -52,7 +51,6 @@ async componentDidMount() {
   };
   
 
-  
   signIn = async (email, password) => {
     const payload = {
       email,
@@ -87,7 +85,6 @@ async componentDidMount() {
     const loginOrOut = this.state.isSignedIn ? <button onClick={this.signOut}>Log out</button> : "Log in icon"
         return (
       <div>
-      <Link to="/"><img id="header-img" src={kosovoImg} /></Link>
 
         <MediaQuery query='(max-width: 799px)'>
       <MobileNav loginOrOut={loginOrOut} right={true} pageWrapId={"page-wrap"} outerContainerId={"App"} />
@@ -99,9 +96,7 @@ async componentDidMount() {
             <Link to="/">Logo</Link>
           </li>
           <li>
-           {/* <Trans i18nKey='welcome.intro'> */}
             <Link to="/culture">People and Culture</Link>
-            {/* </Trans> */}
           </li>
           <li>
             <Link to="/activities">Things to See and Do</Link>
