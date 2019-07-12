@@ -16,6 +16,21 @@ class Reviews extends Component {
     };
   }
 
+  getAvgRating = () => {
+    const {ratings} = this.state
+    this.state.reviews.map(review => {
+       ratings.push(review.rating)
+    })
+    let total = 0;
+    for(let i = 0; i < ratings.length; i++) {
+        total += ratings[i];
+    }
+    let avgRating = total / ratings.length;
+    this.setState({
+      avgRating
+    })
+  }
+  
   getAllReviews = async () => {
     const res = await axios.get(
       `http://localhost:3000/posts/${this.props.match.params.id}/reviews`
@@ -26,51 +41,44 @@ class Reviews extends Component {
       id: this.props.match.params.id
     });
     this.matchIds();
+    this.getAvgRating();
   }
   
   componentDidMount() {
     this.getAllReviews()
-    this.getAvgRating()
   }
-
-  getAvgRating = () => {
-  this.state.reviews.forEach((review)=>{
-    this.state.ratings.push(review.rating);
-   })
-   console.log(this.state.ratings)
-  }
-
+  
   handleReviewClick = () => {
     if (!this.props.isSignedIn) {
       alert("Please log in or sign up to write a review.")
     }
     else {
-    this.setState({
-      form: !this.state.form
-    })}
-  };
-
-  matchIds = async () => {
-    const currentUserId = localStorage.getItem("uid");
-    const res = await axios.get(`http://localhost:3000/users`);
-    const data = res.data;
-    const currentUser = data.filter(item => item.email === currentUserId);
-    this.setState({
-      currentUser: currentUser[0]
-    });
-  };
-
-  handleReviewDelete = async (id) => {
-  await axios.delete(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${id}`)
-  this.props.history.push('/activities')
-  }
-
-  render() {
-  const {currentUser} = this.state
+      this.setState({
+        form: !this.state.form
+      })}
+    };
     
-  const renderReviews = this.state.reviews.map(review => {
-    if (this.state.currentUser && (review.user_id === currentUser.id)) {
-        return <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
+    matchIds = async () => {
+      const currentUserId = localStorage.getItem("uid");
+      const res = await axios.get(`http://localhost:3000/users`);
+      const data = res.data;
+      const currentUser = data.filter(item => item.email === currentUserId);
+      this.setState({
+        currentUser: currentUser[0]
+      });
+    };
+    
+    handleReviewDelete = async (id) => {
+      await axios.delete(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${id}`)
+      this.props.history.push('/activities')
+    }
+    
+  render() {
+    const {currentUser, avgRating} = this.state
+      
+      const renderReviews = this.state.reviews.map(review => {
+        if (this.state.currentUser && (review.user_id === currentUser.id)) {
+          return <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
         <h2>{review.title}</h2>
         <p>{review.review_text}</p>
         <p>Rating: {review.rating}/5</p>
@@ -94,7 +102,7 @@ class Reviews extends Component {
         ) : null}
         <button onClick={this.handleReviewClick}>Add a review</button>
         <div style={{backgroundColor: "white"}}>
-          <p>Average Rating: {this.state.avgRating}</p>
+          <p>Average Rating: {avgRating}</p>
         {renderReviews}
         
         </div>
