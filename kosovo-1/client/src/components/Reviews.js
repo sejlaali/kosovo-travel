@@ -10,7 +10,9 @@ class Reviews extends Component {
       reviews: [],
       form: false,
       currentUser: {},
-      id: null
+      id: null,
+      avgRating: null,
+      ratings: []
     };
   }
 
@@ -28,6 +30,14 @@ class Reviews extends Component {
   
   componentDidMount() {
     this.getAllReviews()
+    this.getAvgRating()
+  }
+
+  getAvgRating = () => {
+  this.state.reviews.forEach((review)=>{
+    this.state.ratings.push(review.rating);
+   })
+   console.log(this.state.ratings)
   }
 
   handleReviewClick = () => {
@@ -63,6 +73,7 @@ class Reviews extends Component {
         return <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
         <h2>{review.title}</h2>
         <p>{review.review_text}</p>
+        <p>Rating: {review.rating}/5</p>
         <p>Written by: {review.first_name} {review.last_name}</p>       
         <Link to={`/activity/${this.props.match.params.id}/reviews/${review.id}/edit`}><button>Edit</button></Link>
         <button onClick={() => this.handleReviewDelete(`${review.id}`)}>Delete</button>
@@ -83,6 +94,7 @@ class Reviews extends Component {
         ) : null}
         <button onClick={this.handleReviewClick}>Add a review</button>
         <div style={{backgroundColor: "white"}}>
+          <p>Average Rating: {this.state.avgRating}</p>
         {renderReviews}
         
         </div>

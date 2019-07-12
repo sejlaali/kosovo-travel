@@ -28,6 +28,8 @@ background-image: url('https://images.pexels.com/photos/1482927/pexels-photo-148
     top: 75%;
     overflow-x: scroll;
     width: 100%;
+    border-bottom: 2px solid #caa14e;
+    /* border-bottom: 3px solid #2248a1; */
 }
 
 .videos-container > iframe {
@@ -43,10 +45,10 @@ right: -8px;
 top: 75%;
 }
 
-h3 {
-    font-family: 'Amatic SC', serif;
+.travel-blog {
+font-family: 'Amatic SC', serif;
 position: absolute;
-top: 480px;
+top: 475px;
 left: 10px;
 font-weight: 200;
 font-size: 1.7em;

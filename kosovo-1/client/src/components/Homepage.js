@@ -11,7 +11,7 @@ class Homepage extends Component {
         return (
             <div>
             <h1>Welcome to Kosovo</h1>
-                <h3>Travel blogs</h3>
+                <h4 className="travel-blog">Travel blogs</h4>
             <div className="videos-container">
             <iframe width="240" height="130" src="https://www.youtube.com/embed/4ZEcOzSdZbE?start=1321" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <iframe width="240" height="130" src="https://www.youtube.com/embed/v5opSkkNOY0?start=1321" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

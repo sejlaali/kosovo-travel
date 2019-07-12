@@ -9,7 +9,8 @@ class ReviewForm extends Component {
         first_name: "",
         last_name: "",
         title: "",
-        review_text: ""
+        review_text: "",
+        rating: null
     }
   }
 
@@ -64,7 +65,7 @@ class ReviewForm extends Component {
     }
 
   render() {
-      const {first_name, last_name, title, review_text} = this.state
+      const {first_name, last_name, title, review_text, rating} = this.state
     const submitConditional = this.props.isSignedIn ?  this.handleReviewSubmit : this.handleError
 
     return (
@@ -110,6 +111,16 @@ class ReviewForm extends Component {
               type="textarea"
               name="review_text"
               value={review_text}
+                />
+        </div>
+        <div>
+            <label htmlFor="rating">Rating</label>
+            <br/>
+            <input
+              onChange={this.handleChange}
+              type="number"
+              name="rating"
+              value={rating}
                 />
         </div>
         <button onClick={submitConditional}>Submit Review</button>

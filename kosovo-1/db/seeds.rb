@@ -18,5 +18,5 @@ Post.create([
 User.create({email: "test2@me.com", password: "helloworld", password_confirmation: "helloworld"})
 
 Review.create!(
-        {first_name: "Sejla", last_name: "Ali", title: "Good time", review_text: "Good hike!", post_id: 1, user_id: 1}
+        {first_name: "Sejla", last_name: "Ali", title: "Good time", review_text: "Good hike!", post_id: 1, user_id: 1, rating: 5}
 )
