@@ -85,6 +85,7 @@ async componentDidMount() {
     const loginOrOut = this.state.isSignedIn ? <button onClick={this.signOut}>Log out</button> : "Log in icon"
         return (
       <div>
+      {/* <Link to="/"><img id="header-img" src={kosovoImg} /></Link> */}
 
         <MediaQuery query='(max-width: 799px)'>
       <MobileNav loginOrOut={loginOrOut} right={true} pageWrapId={"page-wrap"} outerContainerId={"App"} />
