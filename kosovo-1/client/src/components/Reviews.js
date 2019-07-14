@@ -91,6 +91,7 @@ class Reviews extends Component {
     } else {
        return <div className="single-review-container" style={{ border: "1px solid  black"}}>
          <h2>{review.title}</h2>
+         <p>Rating: {review.rating} out of 5</p>
           <p>{review.review_text}</p>
           <p className="written-by">Written by: {review.first_name} {review.last_name}</p>
         </div>
