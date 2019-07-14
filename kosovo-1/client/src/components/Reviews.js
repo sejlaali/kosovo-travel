@@ -12,7 +12,7 @@ class Reviews extends Component {
       form: false,
       currentUser: {},
       id: null,
-      avgRating: "",
+      avgRating: 0,
       ratings: []
     };
   }
@@ -83,30 +83,30 @@ class Reviews extends Component {
         <h3>{review.title}</h3>
         <p>Rating: {review.rating} out of 5</p>
         <p>{review.review_text}</p>
-        <p>Written by: {review.first_name} {review.last_name}</p>       
+        <p className="written-by">Written by: {review.first_name} {review.last_name}</p>       
         <Link to={`/activity/${this.props.match.params.id}/reviews/${review.id}/edit`}><Button style={{marginRight: "5px"}} variant="info">Edit</Button>
 </Link>
-        {/* <button onClick={() => this.handleReviewDelete(`${review.id}`)}>Delete</button> */}
         <Button onClick={() => this.handleReviewDelete(`${review.id}`)} variant="danger">Delete</Button>
         </div>
     } else {
-       return <div className="single-review-container" style={{ border: "1px solid blue"}}>
+       return <div className="single-review-container" style={{ border: "1px solid  black"}}>
          <h2>{review.title}</h2>
           <p>{review.review_text}</p>
-          <p>Written by: {review.first_name} {review.last_name}</p>
+          <p className="written-by">Written by: {review.first_name} {review.last_name}</p>
         </div>
        }
     })
 
+   const rating = this.state.avgRating  == 0 ? <span>{this.state.avgRating}</span> : <span>0</span>
+
+
     return (
-      <div className="reviews-container"
-      // style={{height: "100vh", backgroundColor: "white", paddingTop: "15%"}}
-      >
+      <div className="reviews-container">
         {this.state.form ? (
         <ReviewForm id={this.state.id} handleReviewClick={this.handleReviewClick} getAllReviews={this.getAllReviews} isSignedIn={this.props.isSignedIn} isUpdateForm={false}/>
         ) : null}
         <div style={{paddingTop: "20px"}}>
-          <p className="avg-rating">Average Rating: <span>{avgRating}</span></p>
+          <p className="avg-rating">Average Rating: {avgRating}</p>
         <Button onClick={this.handleReviewClick} variant="primary">Write a Review!</Button>
 
         {renderReviews}
