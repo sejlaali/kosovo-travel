@@ -140,7 +140,7 @@ class ReviewForm extends Component {
             </Form.Control>
           </Form.Group>
           <Button onClick={submitConditional} variant="success">
-            Submit Revieiw
+            Submit Review
           </Button>
           <Link to="/activities">
             <Button style={{ marginLeft: "5px" }} variant="danger">

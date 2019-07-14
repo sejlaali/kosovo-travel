@@ -1,92 +1,183 @@
-import React, {Component} from 'react'
-
+import React, { Component } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 class SignUpOrLogIn extends Component {
-    state = {
-        name: "",
-        email: "",
-        password: "",
-        password_confirmation: ""
-      };
+  state = {
+    name: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+    signUp: false
+  };
 
-    signUp = (e) => {
-        e.preventDefault()
-        this.props.signUp(
-            this.state.name,
-            this.state.email,
-            this.state.password,
-            this.state.password_confirmation
-        )
-    }
+  signUp = e => {
+    e.preventDefault();
+    this.props.signUp(
+      this.state.name,
+      this.state.email,
+      this.state.password,
+      this.state.password_confirmation
+    );
+  };
 
-    signIn = (e) => {
-        e.preventDefault()
-        this.props.signIn(
-            this.state.email,
-            this.state.password
-        )
-    }
-    
-      handleChange = e => {
-        let name = e.target.name 
-        let value = e.target.value;
-        this.setState({
-          [name]: value
-        })
-      };
+  signIn = e => {
+    e.preventDefault();
+    this.props.signIn(this.state.email, this.state.password);
+  };
 
-    render() {
-        return (
-          <div style={{height: "100vh", backgroundColor: "white"}}>
-        {this.props.isSignedIn ? <div>Welcome!</div> :
-            <form>
-              <div>
-                  <label htmlFor="name">Name: </label>
-                  <br/>
+  handleChange = e => {
+    let name = e.target.name;
+    let value = e.target.value;
+    this.setState({
+      [name]: value
+    });
+  };
 
-                  <input
-                  onChange={this.handleChange}
-                  type="text"
-                  name="name"
-                  value={this.state.name}
-                />
-                </div>
-                <div>
-                <label htmlFor="email">E-mail: </label>
-                <br/>
-                <input
-                  onChange={this.handleChange}
-                  type="text"
-                  name="email"
-                  value={this.state.email}
-                />
-              </div>
-              <div>
-                <label htmlFor="password">Password: </label>
-                <br/>
-                <input
-                  onChange={this.handleChange}
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                />
-              </div>
-              <div>
-                <label htmlFor="password_confirmation">Confirm Password: </label>
-                <br/>
-                <input
-                  onChange={this.handleChange}
-                  type="password"
-                  name="password_confirmation"
-                  value={this.state.password_confirmation}
-                />
-              </div>
-    
-              <button onClick={this.signUp}>Sign Up</button>
-              <button onClick={this.signIn}>Log In</button>
-        </form>}
-          </div>
-        );
-      }
+  SignUpPage = () => {
+    this.setState({
+      signUp: true
+    });
+  };
+
+  render() {
+    const formToDisplay =
+      this.state.signUp && !this.props.isSignedIn ? (
+        <div>
+          <Form style={{ margin: "60px 40px", textAlign: "left" }}>
+            <Form.Group>
+              <Form.Label>Name</Form.Label>
+
+              <Form.Control
+                name="name"
+                onChange={this.handleChange}
+                value={this.state.name}
+                placeholder="Name"
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+                type="email"
+                placeholder="Enter email"
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                type="password"
+                placeholder="Password"
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password Confirmation</Form.Label>
+              <Form.Control
+                name="password_confirmation"
+                value={this.state.password_confirmation}
+                onChange={this.handleChange}
+                type="password"
+                placeholder="Password confirmation"
+              />
+            </Form.Group>
+
+            <Button onClick={this.signUp} variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </div>
+      ) : (
+        <div>
+          <Form style={{ margin: "60px 40px" }}>
+            <Form.Group name="email"
+                value={this.state.email}
+                onChange={this.handleChange} controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+                type="email"
+                placeholder="Enter email"
+              />
+            </Form.Group>
+            <Form.Group name="password"
+                value={this.state.password}
+                onChange={this.handleChange} controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+                type="password"
+                placeholder="Password"
+              />
+            </Form.Group>
+            <Button onClick={this.signIn} variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+          <p>
+            Don't have an account? Sign up{" "}
+            <span onClick={this.SignUpPage}>here!</span>
+          </p>
+        </div>
+      );
+
+    return (
+      <div>{this.props.isSignedIn ? <div> Welcome!</div> : formToDisplay}</div>
+      //     <form>
+      //       <div>
+      //           <label htmlFor="name">Name: </label>
+      //           <br/>
+
+      //           <input
+      //           onChange={this.handleChange}
+      //           type="text"
+      //           name="name"
+      //           value={this.state.name}
+      //         />
+      //         </div>
+      //         <div>
+      //         <label htmlFor="email">E-mail: </label>
+      //         <br/>
+      //         <input
+      //           onChange={this.handleChange}
+      //           type="text"
+      //           name="email"
+      //           value={this.state.email}
+      //         />
+      //       </div>
+      //       <div>
+      //         <label htmlFor="password">Password: </label>
+      //         <br/>
+      //         <input
+      //           onChange={this.handleChange}
+      //           type="password"
+      //           name="password"
+      //           value={this.state.password}
+      //         />
+      //       </div>
+      //       <div>
+      //         <label htmlFor="password_confirmation">Confirm Password: </label>
+      //         <br/>
+      //         <input
+      //           onChange={this.handleChange}
+      //           type="password"
+      //           name="password_confirmation"
+      //           value={this.state.password_confirmation}
+      //         />
+      //       </div>
+
+      //       <button onClick={this.signUp}>Sign Up</button>
+      //       <button onClick={this.signIn}>Log In</button>
+      // </form>
+    );
+  }
 }
 
 export default SignUpOrLogIn;

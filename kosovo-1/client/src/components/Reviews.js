@@ -106,7 +106,7 @@ class Reviews extends Component {
         <ReviewForm id={this.state.id} handleReviewClick={this.handleReviewClick} getAllReviews={this.getAllReviews} isSignedIn={this.props.isSignedIn} isUpdateForm={false}/>
         ) : null}
         <div style={{paddingTop: "20px"}}>
-          <p className="avg-rating">Average Rating: {avgRating}</p>
+          <p className="avg-rating">Average Rating: <span>{avgRating}</span></p>
         <Button onClick={this.handleReviewClick} variant="primary">Write a Review!</Button>
 
         {renderReviews}
