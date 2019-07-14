@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './ReviewForm.css'
+import {Link} from 'react-router-dom'
 
 class ReviewForm extends Component {
   constructor(props){
@@ -21,12 +22,13 @@ class ReviewForm extends Component {
     }
     if (this.props.match.params.review_id) {
       const res = await axios.get(`http://localhost:3000/posts/${this.props.match.params.id}/reviews/${this.props.match.params.review_id}`)
-      const {first_name, last_name, title, review_text} = res.data
+      const {first_name, last_name, title, review_text, rating} = res.data
       this.setState({
         first_name,
         last_name,
         title,
-        review_text
+        review_text,
+        rating
       })
     }
   }
@@ -54,9 +56,9 @@ class ReviewForm extends Component {
       first_name: "",
       last_name: "",
       title: "",
-      review_text: ""
+      review_text: "",
+      rating: null
     })
-
    }
 
     handleError = () => {
@@ -124,6 +126,7 @@ class ReviewForm extends Component {
                 />
         </div>
         <button onClick={submitConditional}>Submit Review</button>
+        <Link to="/activities"><button>Cancel</button></Link>
         </form>
         <br/>
         <br/>

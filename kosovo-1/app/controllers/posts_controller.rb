@@ -8,4 +8,9 @@ class PostsController < ApplicationController
         @post = Post.find params[:id]
         render json: @post
     end
+
+    # def showAvg
+    #     @posts = Post.all
+    #     if @
+    # end
 end

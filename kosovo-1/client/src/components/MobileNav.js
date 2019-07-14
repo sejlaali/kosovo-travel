@@ -16,6 +16,8 @@ class MobileNav extends Component {
                 <hr/>
                 <a className="menu-item" href="/activities">Things to See and Do</a>
                 <hr/>
+                <a className="menu-item" href="/most-popular">Most Popular</a>
+                <hr/>
                 <a className="menu-item" href="/auth/login">{this.props.loginOrOut}</a>
                 <hr/>
                 </Menu>

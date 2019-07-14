@@ -13,6 +13,7 @@ import ReviewForm from './components/ReviewForm'
 import Reviews from './components/Reviews'
 import kosovoImg from "./components/assets/kosovo-flag.png"
 import "../src/components/Homepage.css"
+import MostPopular from './components/MostPopular'
 
 
 class App extends Component {
@@ -103,6 +104,9 @@ async componentDidMount() {
             <Link to="/activities">Things to See and Do</Link>
           </li>
           <li>
+            <Link to="most-popular">Most Popular</Link>
+          </li>
+          <li>
             <Link to="/auth/login">{loginOrOut}</Link>
           </li>
         </nav>
@@ -125,8 +129,9 @@ async componentDidMount() {
                 signUp={this.signUp}
                 isSignedIn={this.state.isSignedIn}
               />
-            )}
+              )}
           />
+              <Route exact path="/most-popular" render={()=> <MostPopular/>} />
         </Switch>
         </div>
       </div>

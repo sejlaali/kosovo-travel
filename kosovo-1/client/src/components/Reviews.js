@@ -11,7 +11,7 @@ class Reviews extends Component {
       form: false,
       currentUser: {},
       id: null,
-      avgRating: null,
+      avgRating: "",
       ratings: []
     };
   }

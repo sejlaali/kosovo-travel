@@ -1,0 +1,11 @@
+img {
+    width: 100%;
+}
+
+.activities-div > h1 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-weight: 200;
+    margin-top: -10px;
+}
+

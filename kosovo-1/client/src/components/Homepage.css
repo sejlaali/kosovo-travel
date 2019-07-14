@@ -1,55 +1,88 @@
-h1 {
+.homepage-title {
     margin: 0 auto;
     /* padding: 50% 0 50% 0; */
     color: white;
    /* font-family: 'Barlow Semi Condensed', sans-serif; */
-   font-weight: 600;
+   font-weight: 800;
    font-family: 'Amatic SC', serif;
-   font-size: 2.6rem;
+   font-size: 3.4rem;
    letter-spacing: 0.07em;
    line-height: 1.3em;
-   color: black;
-   margin-top: 55%;
+   color: white;
+   padding: 60% 0;
+   /* margin-top: 55%; */
    /* background-color: #2248a1; */
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-body {
-background-image: url('https://images.pexels.com/photos/1482927/pexels-photo-1482927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 50vh;
+   /* background-image: url('https://images.pexels.com/photos/1482927/pexels-photo-1482927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); */
+     background-image: url('https://images.pexels.com/photos/910307/pexels-photo-910307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+   background-repeat: no-repeat;
+       background-size: cover;
 }
 
 .videos-container {
     display: flex;
-    position: absolute;
-    top: 75%;
+    /* position: absolute; */
     overflow-x: scroll;
     width: 100%;
-    border-bottom: 2px solid #caa14e;
     /* border-bottom: 3px solid #2248a1; */
+    width: 100%;
+    scrollbar-base-color:white;
+
+}
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog-container > .travel-blog {
+    flex: 1;
+    width: 100%;
+    font-family: 'Amatic SC', serif;
+font-weight: 200;
+font-size: 1.7em;
+margin: 0;
+margin-left: 5px;
+text-align: left;
 }
 
 .videos-container > iframe {
     margin: 1% 2%;
 }
 
-h2 {
-font-family: 'Amatic SC', serif;
-color: white;
-font-size: 3em;
-position: fixed;
-right: -8px;
-top: 75%;
+.homepage-desc {
+    border:1px solid white;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 200;
+    font-size: 1.07em;
+    margin: 55px 20px;
+    line-height: 35px;
+    opacity: .75;
 }
 
-.travel-blog {
-font-family: 'Amatic SC', serif;
-position: absolute;
-top: 475px;
-left: 10px;
-font-weight: 200;
-font-size: 1.7em;
+.hide-mobile {
+    display: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+}
+
+footer > p {
+    margin: 15px 8px;
+    font-size: 18px;
+}
+
+.airplane {
+    background-image: url('https://images.pexels.com/photos/728824/pexels-photo-728824.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10%;
+    margin: 10% 0 5% 0;
+    width: 100%;
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.3em;
+    text-decoration: none;
 }

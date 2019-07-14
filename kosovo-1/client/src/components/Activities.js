@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-
-
+import './Activities.css'
 class Activities extends Component {
     state = {
         activities: [],
@@ -28,7 +27,8 @@ class Activities extends Component {
             </div>
         )
         return (
-            <div style={{backgroundColor: "white", paddingTop: "20%"}}>
+            <div className="activities-div" style={{backgroundColor: "white", paddingTop: "20%"}}>
+             <h1>Things to See and Do</h1>
                 {activitiesRendering}
                 </div>
         )
