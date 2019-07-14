@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import kosovoImg from "../components/assets/kosovo-flag.png"
 import "./Homepage.css"
 import {Link} from 'react-router-dom'
-import axios from 'axios'
+import "../App.css"
 import {FaQuoteLeft, FaQuoteRight, FaTwitter, FaFacebookF, FaInstagram} from 'react-icons/fa'
 
 class Homepage extends Component {
@@ -11,7 +11,7 @@ class Homepage extends Component {
         return (
             <div>
             <h1 className="homepage-title">Welcome to Kosovo</h1>
-            <h3 className="homepage-desc">            <FaQuoteLeft style={{marginRight: '10px'}}/> 
+            <h3 className="homepage-desc">    <FaQuoteLeft style={{marginRight: '10px'}}/> 
 Kosovo is a fascinating land at the heart of the Balkans rewarding visitors with welcoming smiles, charming mountain towns, incredible hiking opportunities & 13th-century domed Serbian monasteries brushed in medieval art<span className="hide-mobile"> – and that's just for starters.</span><FaQuoteRight style={{marginLeft: '10px'}}/></h3>
             <hr/>
             <div className="blog-container">

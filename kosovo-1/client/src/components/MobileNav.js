@@ -12,8 +12,6 @@ class MobileNav extends Component {
                 <a className="menu-item" href="/"><img id="header-img" src={kosovoImg} />Home 
 </a>
                <hr/>
-                <a className="menu-item" href="/culture">People and Culture</a>
-                <hr/>
                 <a className="menu-item" href="/activities">Things to See and Do</a>
                 <hr/>
                 <a className="menu-item" href="/most-popular">Most Popular</a>

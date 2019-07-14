@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
+import {Redirect} from 'react-router-dom'
 import Button from "react-bootstrap/Button";
 class SignUpOrLogIn extends Component {
   state = {
@@ -43,7 +44,7 @@ class SignUpOrLogIn extends Component {
     const formToDisplay =
       this.state.signUp && !this.props.isSignedIn ? (
         <div>
-          <Form style={{ margin: "60px 40px", textAlign: "left" }}>
+          <Form style={{ margin: "60px 40px"}}>
             <Form.Group>
               <Form.Label>Name</Form.Label>
 
@@ -122,60 +123,14 @@ class SignUpOrLogIn extends Component {
             </Button>
           </Form>
           <p>
-            Don't have an account? Sign up{" "}
-            <span onClick={this.SignUpPage}>here!</span>
+            Don't have an account? Sign up
+            <span style={{color: "#2248a1", textDecoration: "underline"}} onClick={this.SignUpPage}>here!</span>
           </p>
         </div>
       );
 
     return (
-      <div>{this.props.isSignedIn ? <div> Welcome!</div> : formToDisplay}</div>
-      //     <form>
-      //       <div>
-      //           <label htmlFor="name">Name: </label>
-      //           <br/>
-
-      //           <input
-      //           onChange={this.handleChange}
-      //           type="text"
-      //           name="name"
-      //           value={this.state.name}
-      //         />
-      //         </div>
-      //         <div>
-      //         <label htmlFor="email">E-mail: </label>
-      //         <br/>
-      //         <input
-      //           onChange={this.handleChange}
-      //           type="text"
-      //           name="email"
-      //           value={this.state.email}
-      //         />
-      //       </div>
-      //       <div>
-      //         <label htmlFor="password">Password: </label>
-      //         <br/>
-      //         <input
-      //           onChange={this.handleChange}
-      //           type="password"
-      //           name="password"
-      //           value={this.state.password}
-      //         />
-      //       </div>
-      //       <div>
-      //         <label htmlFor="password_confirmation">Confirm Password: </label>
-      //         <br/>
-      //         <input
-      //           onChange={this.handleChange}
-      //           type="password"
-      //           name="password_confirmation"
-      //           value={this.state.password_confirmation}
-      //         />
-      //       </div>
-
-      //       <button onClick={this.signUp}>Sign Up</button>
-      //       <button onClick={this.signIn}>Log In</button>
-      // </form>
+      <div>{this.props.isSignedIn ? <div> <Redirect to="/" /></div> : formToDisplay}</div>
     );
   }
 }
