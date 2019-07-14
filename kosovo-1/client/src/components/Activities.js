@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import './Activities.css'
+import {FaLocationArrow} from 'react-icons/fa'
+
 class Activities extends Component {
     state = {
         activities: [],
@@ -19,11 +21,12 @@ class Activities extends Component {
     render() {
 
         const activitiesRendering = this.state.activities.map(activity => 
-            <div style={{borderBottom: "1px solid black", width: "90%", margin: "0 auto"}}><h3>{activity.title}</h3>
-               <h4>City: {activity.city}</h4>
+            <div className="activities" style={{borderBottom: "1px solid black", width: "100%", margin: "0 auto"}}>
+                <h3>{activity.title}</h3>
                 <img src={activity.image_url}/>
+               <h4><span><FaLocationArrow/></span> {activity.city}</h4>
                 <h5>{activity.description}</h5>
-               <Link to={`/activity/${activity.id}/reviews`}><h3>Show all Reviews</h3></Link>
+               <Link className="Link" to={`/activity/${activity.id}/reviews`}><p>{activity.title} Reviews</p></Link>
             </div>
         )
         return (

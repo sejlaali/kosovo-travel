@@ -71,7 +71,7 @@ class ReviewForm extends Component {
     const submitConditional = this.props.isSignedIn ?  this.handleReviewSubmit : this.handleError
 
     return (
-      <div style={{height: "100vh", backgroundColor: "white"}}>
+      <div style={{paddingTop: "40px", height: "50vh", backgroundColor: "white"}}>
         <form>
         <div>
             <label htmlFor="first name">First Name</label>

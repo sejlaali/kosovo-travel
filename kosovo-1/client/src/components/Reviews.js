@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ReviewForm from "./ReviewForm";
-
+import "./Reviews.css"
+import Button from 'react-bootstrap/Button'
 class Reviews extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,7 @@ class Reviews extends Component {
     for(let i = 0; i < ratings.length; i++) {
         total += ratings[i];
     }
-    let avgRating = total / ratings.length;
+    let avgRating = Math.ceil(total / ratings.length);
     this.setState({
       avgRating
     })
@@ -78,16 +79,18 @@ class Reviews extends Component {
       
       const renderReviews = this.state.reviews.map(review => {
         if (this.state.currentUser && (review.user_id === currentUser.id)) {
-          return <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
-        <h2>{review.title}</h2>
+          return <div className="single-review-container" style={{border: "1px solid black"}}>
+        <h3>{review.title}</h3>
+        <p>Rating: {review.rating} out of 5</p>
         <p>{review.review_text}</p>
-        <p>Rating: {review.rating}/5</p>
         <p>Written by: {review.first_name} {review.last_name}</p>       
-        <Link to={`/activity/${this.props.match.params.id}/reviews/${review.id}/edit`}><button>Edit</button></Link>
-        <button onClick={() => this.handleReviewDelete(`${review.id}`)}>Delete</button>
+        <Link to={`/activity/${this.props.match.params.id}/reviews/${review.id}/edit`}><Button style={{marginRight: "5px"}} variant="info">Edit</Button>
+</Link>
+        {/* <button onClick={() => this.handleReviewDelete(`${review.id}`)}>Delete</button> */}
+        <Button onClick={() => this.handleReviewDelete(`${review.id}`)} variant="danger">Delete</Button>
         </div>
     } else {
-       return <div style={{ border: "1px solid blue", width: "90%", margin: "0 auto" }}>
+       return <div className="single-review-container" style={{ border: "1px solid blue"}}>
          <h2>{review.title}</h2>
           <p>{review.review_text}</p>
           <p>Written by: {review.first_name} {review.last_name}</p>
@@ -96,13 +99,16 @@ class Reviews extends Component {
     })
 
     return (
-      <div style={{height: "100vh", backgroundColor: "white", paddingTop: "15%"}}>
+      <div className="reviews-container"
+      // style={{height: "100vh", backgroundColor: "white", paddingTop: "15%"}}
+      >
         {this.state.form ? (
         <ReviewForm id={this.state.id} handleReviewClick={this.handleReviewClick} getAllReviews={this.getAllReviews} isSignedIn={this.props.isSignedIn} isUpdateForm={false}/>
         ) : null}
-        <button onClick={this.handleReviewClick}>Add a review</button>
-        <div style={{backgroundColor: "white"}}>
-          <p>Average Rating: {avgRating}</p>
+        <div style={{paddingTop: "20px"}}>
+          <p className="avg-rating">Average Rating: <span>{avgRating}</span></p>
+        <Button onClick={this.handleReviewClick} variant="primary">Write a Review!</Button>
+
         {renderReviews}
         
         </div>

@@ -1,0 +1,35 @@
+.single-review-container {
+    background-color: white;
+    text-align: left;
+    width: 80vw;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.single-review-container > p {
+font-style: italic;
+}
+
+.reviews-container {
+    background-color: #e2d1c1;
+    padding-bottom: 30px;
+    /* border:1px solid red; */
+}
+
+/* .single-review-container > button {
+    border:1px solid black;
+} */
+
+.avg-rating {
+    border: 1px solid #2248a1;
+    width: 40%;
+    padding: 5px;
+    margin: 10px auto;
+    font-family: "PT Sans", sans-serif;
+    font-size: 1.2em;
+}
+
+.avg-rating > span {
+    font-weight: bold;
+    text-decoration: underline;
+}
