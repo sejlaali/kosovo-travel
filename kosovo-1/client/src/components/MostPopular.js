@@ -33,7 +33,7 @@ export default function MostPopular() {
       <h1>Popular Cities in Kosovo</h1>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        mapboxApiAccessToken="pk.eyJ1Ijoic2VqbGFhbGkiLCJhIjoiY2p5MGdmcGUxMDJ1eDNsbGV4czBod2wxZCJ9.oXQmFa0BWv9YkBlP6zCKCA"
         mapStyle="mapbox://styles/sejlaali/cjy3s8cw02yzg1cnxos5r713z"
         onViewportChange={viewport => {
           setViewport(viewport);
