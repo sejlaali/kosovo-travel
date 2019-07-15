@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "fronto-connect": "^1.2.0",
-    "fronto-localize": "^1.0.2",
-    "i18n-js": "^3.3.0"
-  }
-}

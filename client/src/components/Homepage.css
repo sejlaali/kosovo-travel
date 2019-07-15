@@ -1,0 +1,158 @@
+.homepage-title {
+    margin: 0 auto;
+    /* padding: 50% 0 50% 0; */
+    color: white;
+   /* font-family: 'Barlow Semi Condensed', sans-serif; */
+   font-weight: 800;
+   font-family: 'Amatic SC', serif;
+   font-size: 3.4rem;
+   letter-spacing: 0.07em;
+   line-height: 1.3em;
+   color: white;
+   padding: 60% 0;
+   /* margin-top: 55%; */
+   /* background-color: #2248a1; */
+   /* background-image: url('https://images.pexels.com/photos/1482927/pexels-photo-1482927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); */
+     background-image: url('https://images.pexels.com/photos/910307/pexels-photo-910307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+   background-repeat: no-repeat;
+       background-size: cover;
+}
+
+.videos-container {
+    display: flex;
+    /* position: absolute; */
+    overflow-x: scroll;
+    width: 100%;
+    /* border-bottom: 3px solid #2248a1; */
+    width: 100%;
+    scrollbar-base-color:white;
+
+}
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog-container > .travel-blog {
+    flex: 1;
+    width: 100%;
+    font-family: 'Amatic SC', serif;
+font-weight: 200;
+font-size: 1.7em;
+margin: 0;
+margin-left: 5px;
+text-align: left;
+}
+
+.videos-container > iframe {
+    margin: 1% 2%;
+}
+
+.homepage-desc {
+    border:1px solid white;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 200;
+    font-size: 1.07em;
+    margin: 55px 20px;
+    line-height: 35px;
+    opacity: .75;
+}
+
+.hide-mobile {
+    display: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+}
+
+footer > p {
+    margin: 15px 8px;
+    font-size: 18px;
+}
+
+.airplane {
+    background-image: url('https://images.pexels.com/photos/728824/pexels-photo-728824.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10%;
+    margin: 10% 0 5% 0;
+    width: 100%;
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.3em;
+    text-decoration: none;
+}
+
+@media all and (min-width: 1024px) {
+    .hide-mobile {
+        display: inline-block;
+    }
+    .homepage-desc {
+        font-size: 1.5em;
+        font-style: italic;
+        opacity: .6;
+        margin: 70px;
+        line-height: 45px;
+    }
+    .videos-container {
+        display: inline-block;
+        width: 40vw;
+        margin:0;
+        border:1px solid black;
+        height: 40vh;
+    }
+    .blog-container {
+        display: inline-block;
+    }
+    .hide-desktop {
+        display: none;
+    }
+    
+    .blog-container {
+        margin: 0;
+        padding: 0;
+    }
+    .videos-container {
+        border: none;
+        width: 80vw;
+        height: 60vh;
+        margin: 0;
+        justify-content: space-around;
+        /* border:1px solid black; */
+        box-shadow: 12px 10px 16px gray;
+    }
+    
+    iframe {
+        padding: 0;
+        width: 45%;
+        height: 40%;
+        margin: 0px;
+    }    
+    .blog-container > .travel-blog {
+        text-align: center;
+        font-size: 4em;
+        }
+
+       a.airplane {
+            padding:6.1% 0;
+            font-size: 2.5em;
+            opacity: 1;
+            transition: 1s all;
+        }
+
+        a.airplane:hover {
+        opacity: .5;
+        }
+
+        footer > p{
+font-size: 2em;
+}
+footer {
+margin: 0 auto;
+}
+
+}

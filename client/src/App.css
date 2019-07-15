@@ -1,0 +1,27 @@
+.link-nav {
+    text-decoration: none;
+    color: black;
+    font-family: "PT Sans", sans-serif;
+    color: darkslategray;
+}
+nav > li {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.nav-img {
+    width: 5vw;
+    border-radius: 30px;
+}
+
+@media all and (min-width: 1024px) {
+    h1.homepage-title {
+        padding: 150px;
+        margin: 10px 0;
+        color: white;
+        background-image: url('./components/assets/cityimg.jpg');
+        background-position: 0 -170px;
+        font-size: 6em;
+        font-weight: bold;
+    }
+}
