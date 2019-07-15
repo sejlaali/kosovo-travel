@@ -34,7 +34,7 @@ class Reviews extends Component {
 
   getAllReviews = async () => {
     const res = await axios.get(
-      `http://localhost:3000/posts/${this.props.match.params.id}/reviews`
+      `/posts/${this.props.match.params.id}/reviews`
     );
     const reviews = res.data;
     this.setState({
@@ -61,7 +61,7 @@ class Reviews extends Component {
 
   matchIds = async () => {
     const currentUserId = localStorage.getItem("uid");
-    const res = await axios.get(`http://localhost:3000/users`);
+    const res = await axios.get(`/users`);
     const data = res.data;
     const currentUser = data.filter(item => item.email === currentUserId);
     this.setState({
@@ -71,7 +71,7 @@ class Reviews extends Component {
 
   handleReviewDelete = async id => {
     await axios.delete(
-      `http://localhost:3000/posts/${this.props.match.params.id}/reviews/${id}`
+      `/posts/${this.props.match.params.id}/reviews/${id}`
     );
     this.props.history.push("/activities");
   };

@@ -23,7 +23,7 @@ class ReviewForm extends Component {
     }
     if (this.props.match.params.review_id) {
       const res = await axios.get(
-        `http://localhost:3000/posts/${this.props.match.params.id}/reviews/${
+        `/posts/${this.props.match.params.id}/reviews/${
           this.props.match.params.review_id
         }`
       );
@@ -50,14 +50,14 @@ class ReviewForm extends Component {
     evt.preventDefault();
     if (!this.props.isUpdateForm) {
       await axios.post(
-        `http://localhost:3000/posts/${this.props.id}/reviews`,
+        `/posts/${this.props.id}/reviews`,
         this.state
       );
       this.props.handleReviewClick();
       this.props.getAllReviews();
     } else {
       await axios.put(
-        `http://localhost:3000/posts/${this.props.match.params.id}/reviews/${
+        `/posts/${this.props.match.params.id}/reviews/${
           this.props.match.params.review_id
         }`,
         this.state

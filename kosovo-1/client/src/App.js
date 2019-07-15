@@ -40,7 +40,7 @@ async componentDidMount() {
       password: password,
       password_confirmation: password_confirmation
     };
-   try {const res = await axios.post("http://localhost:3000/auth", payload);
+   try {const res = await axios.post("/auth", payload);
   saveAuthTokens(res.headers)
   this.setState({
     isSignedIn: true
@@ -57,7 +57,7 @@ async componentDidMount() {
       email,
       password
     };
-    try {const res = await axios.post("http://localhost:3000/auth/sign_in", payload);
+    try {const res = await axios.post("/auth/sign_in", payload);
     saveAuthTokens(res.headers)
     this.setState({
       isSignedIn: true

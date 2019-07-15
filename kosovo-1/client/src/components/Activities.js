@@ -11,7 +11,7 @@ class Activities extends Component {
     }
 
     async componentDidMount() {
-        const res = await axios.get("http://localhost:3000/posts")
+        const res = await axios.get("/posts")
         const activities = res.data
         this.setState({
             activities
