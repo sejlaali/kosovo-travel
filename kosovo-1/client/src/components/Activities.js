@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import './Activities.css'
 import {FaLocationArrow} from 'react-icons/fa'
-
+import {MediaQuery }from 'react-responsive'
 class Activities extends Component {
     state = {
         activities: [],
@@ -26,13 +26,18 @@ class Activities extends Component {
                 <img src={activity.image_url}/>
                <h4><span><FaLocationArrow/></span> {activity.city}</h4>
                 <h5>{activity.description}</h5>
-               <Link className="Link" to={`/activity/${activity.id}/reviews`}><p>{activity.title} Reviews</p></Link>
+               <Link className="Link" to={`/activity/${activity.id}/reviews`}><p className="Link-p">{activity.title} Reviews</p></Link>
             </div>
         )
         return (
-            <div className="activities-div" style={{backgroundColor: "white", paddingTop: "20%"}}>
+            <div>
+            <MediaQuery query='(min-width: 1024px)'>
              <h1>Things to See and Do</h1>
+            </MediaQuery>
+            <div className="activities-div" style={{backgroundColor: "white", paddingTop: "20%"}}>
+             <h1 className="hide-desktop">Things to See and Do</h1>
                 {activitiesRendering}
+                </div>
                 </div>
         )
     }

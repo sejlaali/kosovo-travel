@@ -48,3 +48,59 @@
 h4 > span {
     text-decoration: underline;
 }
+
+@media all and (min-width: 1024px) {
+.activities-div {
+    padding-top: 45px !important;
+}
+.activities-div {
+    /* width: 50% !important; */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.activities-div > h1 {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.activities > img {
+    height: 40vh !important;
+    border: 1px solid black;
+}
+
+.activities {
+    width: 30% !important;
+    justify-content: space-around;
+}
+
+h1 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+h1.hide-desktop {
+    display: none;
+}
+
+.Link {
+    width: 50% !important;
+    padding: 0;
+}
+.Link-p {
+    width: 50% !important;
+    transition: 1s all;
+    height:7vh;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.Link-p:hover {
+    background-color: #caa14e;
+    color: white;
+}
+
+}

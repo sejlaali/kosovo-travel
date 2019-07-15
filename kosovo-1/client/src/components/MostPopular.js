@@ -1,10 +1,8 @@
 import ReactMapGL from 'react-map-gl'
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import './MostPopular.css'
 import MapGL, {NavigationControl, Marker} from 'react-map-gl';
-import {IoMdPin} from 'react-icons/io'
-
-const TOKEN = 'pk.eyJ1Ijoic2VqbGFhbGkiLCJhIjoiY2p5MGdmcGUxMDJ1eDNsbGV4czBod2wxZCJ9.oXQmFa0BWv9YkBlP6zCKCA'
+import {MdLocationOn} from 'react-icons/md'
 
 const navStyle = {
     position: 'absolute',
@@ -13,32 +11,35 @@ const navStyle = {
     // padding: '10px'
   };
 
-class MostPopular extends Component {
-   constructor() {
-       super()
-       this.state = {
-           viewport: {
-               latitude: 42.6026,
-               longitude: 20.9030,
-               zoom: 7,
-            //    maxZoom: 25,
-            //    bearing: 0,
-            //    pitch: 0,
-               width: 375,
-               height: 500,
-            },
-            popupInfo: null
-        };
-    }
-    
+export default function MostPopular() {
 
-render() {
-    const {viewport} = this.state;
+    //    this.state = {
+    //        viewport: {
+    //            latitude: 37.785164,
+    //         //    42.6026,
+    //            longitude: -100,
+    //         //    20.9030,
+    //            zoom: 6,
+    //         //    maxZoom: 25,
+    //         //    bearing: 0,
+    //         //    pitch: 0,
+    //            width: 500,
+    //            height: 500,
+    //         },
+    //         popupInfo: null
+    //     };
 
+    const [viewport, setViewport] = useState({
+        latitude: 42.667542,
+        longitude: 21.166191,
+        width: "100vw",
+        height: "80vh",
+        zoom: 10
+    });
     return (
         <div  id="map" style={{backgroundColor: "white"}}>
-            <h1>this is most popular page</h1>
-            <MapGL
+            <h1>Popular Cities in Kosovo</h1>
+            {/* <ReactMapGL
         {...viewport}
         container= 'map'
         center= {
@@ -47,6 +48,7 @@ render() {
             20.9030
             ]
         }
+        zooom= 'map.getZoom().toFixed(2)'
         mapStyle="mapbox://styles/mapbox/light-v10"
         mapboxApiAccessToken={TOKEN}>
         <div className="nav" style={navStyle}>
@@ -65,11 +67,21 @@ render() {
         </Marker>
 
         </div>
-      </MapGL>
+      </ReactMapGL> */}
+      <ReactMapGL {...viewport}  mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN} 
+      mapStyle="mapbox://styles/sejlaali/cjy3s8cw02yzg1cnxos5r713z"
+      onViewportChange={
+          viewport => {
+              setViewport(viewport);
+          }}>
+        <Marker key="1">
+            <div><MdLocationOn /></div>
+        </Marker>
+      </ReactMapGL>
+
+
 </div>
     )
 }
-}
 
-export default MostPopular
 

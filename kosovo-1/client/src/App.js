@@ -68,8 +68,8 @@ async componentDidMount() {
   };
 
   signOut = async (e) => {
-    alert('You are logged out.')
     e.preventDefault()
+    alert('You are logged out.')
 
     clearAuthTokens();
     this.setState({
@@ -88,7 +88,6 @@ async componentDidMount() {
     const loginOrOut = this.state.isSignedIn ? <FiLogOut onClick={this.signOut}/> : <FiLogIn />
         return (
       <div>
-      {/* <Link to="/"><img id="header-img" src={kosovoImg} /></Link> */}
 
         <MediaQuery query='(max-width: 799px)'>
       <MobileNav loginOrOut={loginOrOut} right={true} pageWrapId={"page-wrap"} outerContainerId={"App"} />

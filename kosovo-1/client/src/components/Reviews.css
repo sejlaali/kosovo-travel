@@ -33,3 +33,16 @@ font-style: italic;
     font-weight: bold;
     text-decoration: underline;
 }
+
+@media all and (min-width: 1024px) {
+    .single-review-container {
+        width: 60vw;
+        height: 30vh;
+    }
+    .avg-rating {
+        width: 15%;
+        box-shadow: 0px 8px 10px white;
+        font-size: 1.4em;
+        margin-bottom:15px;
+    }
+}

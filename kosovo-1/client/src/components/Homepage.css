@@ -86,3 +86,73 @@ footer > p {
     font-size: 1.3em;
     text-decoration: none;
 }
+
+@media all and (min-width: 1024px) {
+    .hide-mobile {
+        display: inline-block;
+    }
+    .homepage-desc {
+        font-size: 1.5em;
+        font-style: italic;
+        opacity: .6;
+        margin: 70px;
+        line-height: 45px;
+    }
+    .videos-container {
+        display: inline-block;
+        width: 40vw;
+        margin:0;
+        border:1px solid black;
+        height: 40vh;
+    }
+    .blog-container {
+        display: inline-block;
+    }
+    .hide-desktop {
+        display: none;
+    }
+    
+    .blog-container {
+        margin: 0;
+        padding: 0;
+    }
+    .videos-container {
+        border: none;
+        width: 80vw;
+        height: 60vh;
+        margin: 0;
+        justify-content: space-around;
+        /* border:1px solid black; */
+        box-shadow: 12px 10px 16px gray;
+    }
+    
+    iframe {
+        padding: 0;
+        width: 45%;
+        height: 40%;
+        margin: 0px;
+    }    
+    .blog-container > .travel-blog {
+        text-align: center;
+        font-size: 4em;
+        }
+
+       a.airplane {
+            padding:6.1% 0;
+            font-size: 2.5em;
+            opacity: 1;
+            transition: 1s all;
+        }
+
+        a.airplane:hover {
+        opacity: .5;
+        }
+
+        footer > p{
+font-size: 2em;
+}
+footer {
+margin: 0 auto;
+}
+
+}

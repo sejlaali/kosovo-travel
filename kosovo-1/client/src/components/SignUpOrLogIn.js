@@ -124,7 +124,7 @@ class SignUpOrLogIn extends Component {
           </Form>
           <p>
             Don't have an account? Sign up
-            <span style={{color: "#2248a1", textDecoration: "underline"}} onClick={this.SignUpPage}>here!</span>
+            <span style={{color: "#2248a1", textDecoration: "underline"}} onClick={this.SignUpPage}> here!</span>
           </p>
         </div>
       );
