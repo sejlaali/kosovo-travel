@@ -128,9 +128,8 @@ class Reviews extends Component {
 
     const rating =
       !this.state.avgRating ? (
-        <span>{this.state.avgRating}</span>
-      ) : (
-        <span>0</span>
+        <span>0</span>) : (
+          <span>{this.state.avgRating}</span>
       );
 
     return (
