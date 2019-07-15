@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
-import {Redirect} from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 class SignUpOrLogIn extends Component {
   state = {
@@ -44,7 +44,7 @@ class SignUpOrLogIn extends Component {
     const formToDisplay =
       this.state.signUp && !this.props.isSignedIn ? (
         <div>
-          <Form style={{ margin: "60px 40px"}}>
+          <Form style={{ margin: "60px 40px" }}>
             <Form.Group>
               <Form.Label>Name</Form.Label>
 
@@ -94,26 +94,32 @@ class SignUpOrLogIn extends Component {
       ) : (
         <div>
           <Form style={{ margin: "60px 40px" }}>
-            <Form.Group name="email"
-                value={this.state.email}
-                onChange={this.handleChange} controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
+            <Form.Group
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
+              controlId="formBasicEmail"
+            >
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
                 type="email"
                 placeholder="Enter email"
               />
             </Form.Group>
-            <Form.Group name="password"
-                value={this.state.password}
-                onChange={this.handleChange} controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+            <Form.Group
               name="password"
               value={this.state.password}
               onChange={this.handleChange}
+              controlId="formBasicPassword"
+            >
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
                 type="password"
                 placeholder="Password"
               />
@@ -124,13 +130,28 @@ class SignUpOrLogIn extends Component {
           </Form>
           <p>
             Don't have an account? Sign up
-            <span style={{color: "#2248a1", textDecoration: "underline"}} onClick={this.SignUpPage}> here!</span>
+            <span
+              style={{ color: "#2248a1", textDecoration: "underline" }}
+              onClick={this.SignUpPage}
+            >
+              {" "}
+              here!
+            </span>
           </p>
         </div>
       );
 
     return (
-      <div>{this.props.isSignedIn ? <div> <Redirect to="/" /></div> : formToDisplay}</div>
+      <div>
+        {this.props.isSignedIn ? (
+          <div>
+            {" "}
+            <Redirect to="/" />
+          </div>
+        ) : (
+          formToDisplay
+        )}
+      </div>
     );
   }
 }

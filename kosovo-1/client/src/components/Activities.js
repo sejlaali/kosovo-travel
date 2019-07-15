@@ -25,8 +25,8 @@ class Activities extends Component {
                 <h3>{activity.title}</h3>
                 <img src={activity.image_url}/>
                <h4><span><FaLocationArrow/></span> {activity.city}</h4>
-                <h5>{activity.description}</h5>
                <Link className="Link" to={`/activity/${activity.id}/reviews`}><p className="Link-p">{activity.title} Reviews</p></Link>
+                <h5>{activity.description}</h5>
             </div>
         )
         return (

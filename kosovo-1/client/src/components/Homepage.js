@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import kosovoImg from "../components/assets/kosovo-flag.png"
 import "./Homepage.css"
-import {Link} from 'react-router-dom'
 import "../App.css"
 import {FaQuoteLeft, FaQuoteRight, FaTwitter, FaFacebookF, FaInstagram} from 'react-icons/fa';
-import MediaQuery from 'react-responsive';
 
 class Homepage extends Component {
 constructor(props) {

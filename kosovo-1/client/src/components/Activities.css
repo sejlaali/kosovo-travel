@@ -93,7 +93,7 @@ h1.hide-desktop {
 .Link-p {
     width: 50% !important;
     transition: 1s all;
-    height:7vh;
+    height:6vh;
     text-align: center;
     margin: 0 auto;
 }
@@ -101,6 +101,13 @@ h1.hide-desktop {
 .Link-p:hover {
     background-color: #caa14e;
     color: white;
+}
+div.activities {
+    height: 80vh;
+    overflow: scroll;
+}
+.activities {
+    margin-bottom: 50px !important;
 }
 
 }

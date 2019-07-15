@@ -80,9 +80,9 @@ class ReviewForm extends Component {
     alert("Please make sure you sign in to submit a review");
   };
 
-  handleOptionChange = (event)=> {
-    this.setState({rating: event.target.value});
-  }
+  handleOptionChange = event => {
+    this.setState({ rating: event.target.value });
+  };
 
   render() {
     const { first_name, last_name, title, review_text, rating } = this.state;
@@ -135,12 +135,16 @@ class ReviewForm extends Component {
             controlId="exampleForm.ControlSelect1"
           >
             <Form.Label>Rating</Form.Label>
-            <Form.Control value={rating} onChange={this.handleOptionChange} as="select">
+            <Form.Control
+              value={rating}
+              onChange={this.handleOptionChange}
+              as="select"
+            >
               <option>1</option>
-              <option >2</option>
-              <option >3</option>
-              <option >4</option>
-              <option >5</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
             </Form.Control>
           </Form.Group>
           <Button onClick={submitConditional} variant="success">
