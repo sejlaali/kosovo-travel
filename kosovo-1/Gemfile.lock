@@ -162,7 +162,6 @@ DEPENDENCIES
   cancancan
   devise
   devise_token_auth
-  i18n
   listen (>= 3.0.5, < 3.2)
   omniauth
   pg (>= 0.18, < 2.0)
@@ -177,4 +176,4 @@ RUBY VERSION
    ruby 2.3.7p456
 
 BUNDLED WITH
-   2.0.2
+   1.17.3

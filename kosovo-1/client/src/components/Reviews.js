@@ -26,7 +26,7 @@ class Reviews extends Component {
     for (let i = 0; i < ratings.length; i++) {
       total += ratings[i];
     }
-    let avgRating = Math.ceil(total / ratings.length);
+    let avgRating = Math.ceil(total / ratings.length)
     this.setState({
       avgRating
     });
@@ -127,10 +127,9 @@ class Reviews extends Component {
     });
 
     const rating =
-      this.state.avgRating == 0 ? (
-        <span>{this.state.avgRating}</span>
-      ) : (
-        <span>0</span>
+      !this.state.avgRating ? (
+      <span>0</span>) :
+        (<span>{this.state.avgRating}</span>
       );
 
     return (

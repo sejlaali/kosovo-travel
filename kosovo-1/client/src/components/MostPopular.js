@@ -4,6 +4,7 @@ import "./MostPopular.css";
 import MapGL, { Marker } from "react-map-gl";
 import { MdLocationOn } from "react-icons/md";
 import { Popup } from "react-map-gl";
+import axios from 'axios'
 
 export default function MostPopular() {
   const [viewport, setViewport] = useState({
@@ -21,11 +22,32 @@ export default function MostPopular() {
       }
     };
     window.addEventListener("keydown", listener);
-
     return () => {
       window.removeEventListener("keydown", listener);
     };
   }, []);
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:3000/posts")
+    .then(result => setData(result.data));
+  }, []);
+
+  const markers = data.map(activity => 
+    activity.longitude && activity.latitude ? 
+    <Marker longitude={parseFloat(activity.longitude)} latitude={parseFloat(activity.latitude)}>
+        <div
+      onClick={e => {
+        e.preventDefault();
+        setSelectedCity(activity)
+      }}
+      style={{ fontSize: "30px", color: "#caa14e" }}
+    >
+      <MdLocationOn />
+    </div>
+    </Marker>
+  : null
+  )
 
   const [selectedCity, setSelectedCity] = useState(null);
   return (
@@ -39,70 +61,26 @@ export default function MostPopular() {
           setViewport(viewport);
         }}
       >
-        <Marker longitude={20.866} latitude={42.891}>
-          <div
-            onClick={e => {
-              e.preventDefault();
-              setSelectedCity("Mitrovica");
-            }}
-            style={{ fontSize: "30px", color: "#caa14e" }}
-          >
-            <MdLocationOn />
-          </div>
-        </Marker>
-        <Marker longitude={21.1655} latitude={42.6629}>
-          <div
-            onClick={e => {
-              e.preventDefault();
-              setSelectedCity("Prishtina");
-            }}
-            style={{ fontSize: "30px", color: "#caa14e" }}
-          >
-            <MdLocationOn />
-          </div>
-        </Marker>
-        <Marker longitude={20.7415} latitude={42.2153}>
-          <div
-            onClick={e => {
-              e.preventDefault();
-              setSelectedCity("Prizren");
-            }}
-            style={{ fontSize: "30px", color: "#caa14e" }}
-          >
-            <MdLocationOn />
-          </div>
-        </Marker>
-        <Marker longitude={20.2887} latitude={42.6593}>
-          <div
-            onClick={e => {
-              e.preventDefault();
-              setSelectedCity("Peja");
-            }}
-            style={{ fontSize: "30px", color: "#caa14e" }}
-          >
-            <MdLocationOn />
-          </div>
-        </Marker>
-        {selectedCity === "Mitrovica" ? (
-          <Popup
+        {markers}
+  
+        {selectedCity ? <Popup
             onClose={() => {
               setSelectedCity(null);
             }}
-            longitude={20.866}
-            latitude={42.891}
+          longitude={parseFloat(selectedCity.longitude)} latitude={parseFloat(selectedCity.latitude)}
           >
             <div>
-              <h2>Mitrovica</h2>
+              <h2>{selectedCity .city}</h2>
               <p>
-                According to the 2011 Census, in Mitrovica live 84,235
-                inhabitants. 71,909 of which in the southern municipality and
-                12,326 in North Mitrovica.
+                {selectedCity.description}
               </p>
             </div>
-          </Popup>
-        ) : null}
+          </Popup> : null} 
+        {/* {selectedCity === "Mitrovica" ? (
+          
+        ) : null} */}
 
-        {selectedCity === "Prishtina" ? (
+        {/* {selectedCity === "Prishtina" ? (
           <Popup
             onClose={() => {
               setSelectedCity(null);
@@ -162,6 +140,14 @@ export default function MostPopular() {
             </div>
           </Popup>
         ) : null}
+
+        {selectedCity === "Gazivoda Lake" ? (
+          <Popup
+          onCloce
+          >
+
+          </Popup>
+        )} */}
       </ReactMapGL>
     </div>
   );

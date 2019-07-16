@@ -6,21 +6,16 @@ import {FaLocationArrow} from 'react-icons/fa'
 import {MediaQuery }from 'react-responsive'
 class Activities extends Component {
     state = {
-        activities: [],
         reviews: []
     }
 
-    async componentDidMount() {
-        const res = await axios.get("http://localhost:3000/posts")
-        const activities = res.data
-        this.setState({
-            activities
-        })
+     componentDidMount() {
+     this.props.getActivities()
     }
 
     render() {
-
-        const activitiesRendering = this.state.activities.map(activity => 
+const {activities } = this.props
+        const activitiesRendering = activities.map(activity => 
             <div className="activities" style={{borderBottom: "1px solid black", width: "100%", margin: "0 auto"}}>
                 <h3>{activity.title}</h3>
                 <img src={activity.image_url}/>
