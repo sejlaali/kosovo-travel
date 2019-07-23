@@ -26,7 +26,7 @@ class Reviews extends Component {
     for (let i = 0; i < ratings.length; i++) {
       total += ratings[i];
     }
-    let avgRating = Math.ceil(total / ratings.length);
+    let avgRating = Math.ceil(total / ratings.length)
     this.setState({
       avgRating
     });
@@ -34,7 +34,7 @@ class Reviews extends Component {
 
   getAllReviews = async () => {
     const res = await axios.get(
-      `/posts/${this.props.match.params.id}/reviews`
+      `http://localhost:3000/posts/${this.props.match.params.id}/reviews`
     );
     const reviews = res.data;
     this.setState({
@@ -61,7 +61,7 @@ class Reviews extends Component {
 
   matchIds = async () => {
     const currentUserId = localStorage.getItem("uid");
-    const res = await axios.get(`/users`);
+    const res = await axios.get(`http://localhost:3000/users`);
     const data = res.data;
     const currentUser = data.filter(item => item.email === currentUserId);
     this.setState({
@@ -71,7 +71,7 @@ class Reviews extends Component {
 
   handleReviewDelete = async id => {
     await axios.delete(
-      `/posts/${this.props.match.params.id}/reviews/${id}`
+      `http://localhost:3000/posts/${this.props.match.params.id}/reviews/${id}`
     );
     this.props.history.push("/activities");
   };
@@ -128,8 +128,8 @@ class Reviews extends Component {
 
     const rating =
       !this.state.avgRating ? (
-        <span>0</span>) : (
-          <span>{this.state.avgRating}</span>
+      <span>0</span>) :
+        (<span>{this.state.avgRating}</span>
       );
 
     return (
