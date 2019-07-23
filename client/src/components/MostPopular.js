@@ -33,8 +33,8 @@ export default function MostPopular() {
     .then(result => setData(result.data));
   }, []);
 
-  const markers = data.map(activity => 
-    activity.longitude && activity.latitude ? 
+  const markers = data.map(activity =>
+    activity.longitude && activity.latitude ?
     <Marker longitude={parseFloat(activity.longitude)} latitude={parseFloat(activity.latitude)}>
         <div
       onClick={e => {
@@ -62,7 +62,7 @@ export default function MostPopular() {
         }}
       >
         {markers}
-  
+
         {selectedCity ? <Popup
             onClose={() => {
               setSelectedCity(null);
@@ -75,79 +75,8 @@ export default function MostPopular() {
                 {selectedCity.description}
               </p>
             </div>
-          </Popup> : null} 
-        {/* {selectedCity === "Mitrovica" ? (
-          
-        ) : null} */}
+          </Popup> : null}
 
-        {/* {selectedCity === "Prishtina" ? (
-          <Popup
-            onClose={() => {
-              setSelectedCity(null);
-            }}
-            longitude={21.1655}
-            latitude={42.6629}
-          >
-            {" "}
-            <div>
-              <h2>Prishtina</h2>
-              <p>
-                Pristina was the capital of the Serbian state before the Turks
-                defeated the Balkan Christian armies in 1389 at the Battle of
-                Kosovo, which was fought on the Kosovo Plain west of Pristina.
-              </p>
-            </div>
-          </Popup>
-        ) : null}
-
-        {selectedCity === "Prizren" ? (
-          <Popup
-            onClose={() => {
-              setSelectedCity(null);
-            }}
-            longitude={20.7415}
-            latitude={42.2153}
-          >
-            <div>
-              <h2>Prizren</h2>
-              <p>
-                Nestled in a valley between the Sharr Mountains on one side and
-                the ruins of a hilltop citadel on the other, Prizren is
-                beautifully situated. Flowing through the heart of the city is
-                the Lumbardhi (Bistrica) River, its fast-flowing waters skimming
-                over a riverbed of boulders and under the many bridges that
-                criss-cross the city.
-              </p>
-            </div>
-          </Popup>
-        ) : null}
-
-        {selectedCity === "Peja" ? (
-          <Popup
-            onClose={() => {
-              setSelectedCity(null);
-            }}
-            longitude={20.2887}
-            latitude={42.6593}
-          >
-            <div>
-              <h2>Peja</h2>
-              <p>
-                The medieval city was possibly built on the ruins of
-                Siparant(um), a Roman municipium (town or city). The area has
-                the most unearthed stelae in all of Kosovo.
-              </p>
-            </div>
-          </Popup>
-        ) : null}
-
-        {selectedCity === "Gazivoda Lake" ? (
-          <Popup
-          onCloce
-          >
-
-          </Popup>
-        )} */}
       </ReactMapGL>
     </div>
   );
