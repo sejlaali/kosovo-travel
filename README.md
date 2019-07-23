@@ -1,24 +1,12 @@
-# README
+# Kosovo Travel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
+Kosovo Travel is a full-stack responsive travel app for Kosovo where users can log in, post reviews, edit or delete their own reviews.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Technologies:
+* React.js <br/>
+* React-router <br/>
+* Ruby on Rails <br/>
+* Devise Token Auth <br/>
+* ReactMapGL <br/>
+* React-Bootstrap <br/>
